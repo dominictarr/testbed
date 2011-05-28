@@ -2,28 +2,20 @@
 /*
 git log //parse current commit
 
-//if everything worked save data in couch for commit.
-
-
-testbed pull/clones the repo 
-inits
-npm updates
-meta-tests
-
-and emits events at each stage.
-
-CREATE: server
-which does all that stuff, and updates couch on events.
-
-server calls testbed.js listens for events, updates couch, serves response.
-
 POST
-{payload: { repository: {name: project, owner: {name: username}}}}
+{payload: JSON.stringify({ repository: {name: project, owner: {name: username}}})}
 
-then it responds to
-GET
-/username/project{?/commit}
+//json within json. stupid, i know.
 
+look into permissions downgrading (npm does it) and chroot.
+
+grab other commit information. (just save the github post)
+
+test and initialize database.
+
+nicer views.
+
+support for more test adapters.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

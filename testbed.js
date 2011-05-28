@@ -136,7 +136,7 @@ var also = {
     fs.readFile(self.path('basedir', 'username', 'project','package.json'),
       'utf-8', 
       function (err,json){
-        if(err) throw err//FIXME
+        //if(err) throw err//FIXME
         var package = eval('(' + json + ')')
         //winston.info((package.name + '@' + package.version).bold)
 

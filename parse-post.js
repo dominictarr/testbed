@@ -1,0 +1,6 @@
+var post = 
+{ payload: '{"before":"6e299b6e18aba502a237cd328183b6cc7ccd477f","repository":{"homepage":"","watchers":3,"has_downloads":true,"forks":2,"language":"JavaScript","has_wiki":true,"fork":false,"description":"simple curry module, with nothing *too clever*, and full test coverage","url":"https://github.com/dominictarr/curry","pushed_at":"2011/05/28 08:16:34 -0700","created_at":"2010/11/29 00:55:50 -0800","has_issues":true,"private":false,"size":156,"owner":{"email":"dominic.tarr@gmail.com","name":"dominictarr"},"name":"curry","open_issues":0},"after":"415e293d03e1b72cd7c29fcdb5d7c03ecd8ddc91","commits":[{"timestamp":"2011-05-28T08:16:21-07:00","author":{"username":"dominictarr","email":"dominic.tarr@gmail.com","name":"Dominic Tarr"},"removed":[],"message":"turn down volume on readme","distinct":true,"url":"https://github.com/dominictarr/curry/commit/415e293d03e1b72cd7c29fcdb5d7c03ecd8ddc91","modified":[],"added":["readme.markdown"],"id":"415e293d03e1b72cd7c29fcdb5d7c03ecd8ddc91"}],"base_ref":null,"compare":"https://github.com/dominictarr/curry/compare/6e299b6...415e293","ref":"refs/heads/master","deleted":false,"pusher":{"email":"dominic.tarr@gmail.com","name":"dominictarr"},"forced":false,"created":false}' }
+
+var payload = JSON.parse(post.payload)
+console.log(payload)
+console.log(payload.repository.owner.name,payload.repository.name)
