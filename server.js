@@ -83,7 +83,7 @@ app.get('/:username?/:project?', function (req,res){
   console.log("START:",start)
 
   db.view('all/status',opts, function (err,data){
-  if(err) {res.send(err)}
+  if(err) {return res.send(err)}
   data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
   console.log(JSON.stringify(data))
   data = JSON.parse(JSON.stringify(data))
