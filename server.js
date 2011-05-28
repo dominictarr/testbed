@@ -46,6 +46,10 @@ function save (repo){
 
 app.post('/', function (req,res){
 
+  console.log("*******************")
+  console.log(req.body)
+  console.log("*******************")
+
   repo = testbed.Repo(req.body.repository.owner.name,req.body.repository.name)
 
   repo.on('change',function (event){
