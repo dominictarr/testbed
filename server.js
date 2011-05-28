@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var express = require('express') 
   , app = express.createServer()
   , testbed = new (require('./testbed'))(process.cwd() + '/workspace')
@@ -7,7 +9,6 @@ var express = require('express')
   
   db = new(cradle.Connection)().database('testbed')
 
-  
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
