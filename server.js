@@ -50,6 +50,13 @@ app.post('/', function (req,res){
   console.log(req.body)
   console.log("*******************")
 
+  if(!req.body)
+    return res.send ({error: "Expected payload: property"})
+  try{
+  var payload = JSON.parse(req.body.payload)
+  } catch (err){
+    return res.send ({error: "was not valid JSON", was: req.body.payload, exception: err.stack})  
+  }
   repo = testbed.Repo(req.body.repository.owner.name,req.body.repository.name)
 
   repo.on('change',function (event){
