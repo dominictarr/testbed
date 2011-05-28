@@ -1,0 +1,25 @@
+{
+  "author": "Dominic Tarr <dominic.tarr@gmail.com>",
+  "name": "testbed",
+  "description": "continuious integration for node",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "main": "./testbed",
+  "scripts": {
+    "test": "meta-test test/*.js"
+  },
+  "engines": {
+    "node": ">= 0.4.7"
+  },
+  "dependencies": {
+    "meta-test": "= 0.0.4",
+    "request": "= 1.9.5",
+    "cradle": "= 0.5.5",
+    "jade": "= 0.10.0",
+    "wildfile": "= 0.0.0",
+    "express": "= 2.3.10"
+  },
+  "devDependencies": {}
+}

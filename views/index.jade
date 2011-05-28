@@ -1,0 +1,17 @@
+h1 Testbed
+  - rows.forEach(function (e){
+    h3
+      - var sofar = []
+      - e.key.forEach(function (e){
+        - sofar.push(e)
+        span /
+        a(href='/' + sofar.join('/'))=e
+      - })
+    ol
+      - e.value.forEach(function (test){
+        pre= JSON.stringify(test)
+        li
+          div= test.name
+          div= test.status
+      - })
+  - })

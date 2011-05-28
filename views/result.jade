@@ -1,0 +1,10 @@
+h1 testbed
+  - state.results.forEach(function (test){
+    h3= test.filename || test.name 
+      label= test.status
+    - test.tests.forEach(function (test){
+      h4= test.name 
+        div= test.status
+    - })
+  - })
+  
