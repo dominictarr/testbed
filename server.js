@@ -55,9 +55,12 @@ app.post('/', function (req,res){
   try{
   var payload = JSON.parse(req.body.payload)
   } catch (err){
-    return res.send ({error: "was not valid JSON", was: req.body.payload, exception: err.stack})  
+    return res.send ({
+      error: "was not valid JSON", 
+      was: req.body.payload, 
+      exception: err.stack})  
   }
-  repo = testbed.Repo(req.body.repository.owner.name,req.body.repository.name)
+  repo = testbed.Repo(payload.repository.owner.name,payload.repository.name)
 
   repo.on('change',function (event){
     console.log([repo.username,repo.project].join('/'),[].shift.call(arguments))
