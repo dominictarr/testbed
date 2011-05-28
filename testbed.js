@@ -1,7 +1,5 @@
 var exec = require('child_process').exec
-  , github = new (require('github').GitHubApi)()
   , join = require('path').join
-  //, //winston = require('//winston')
   , fs = require('fs')
   , find = require('wildfile').find
   , metatest = require('meta-test')
