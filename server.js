@@ -3,11 +3,31 @@
 var express = require('express') 
   , app = express.createServer()
   , testbed = new (require('./testbed'))(process.cwd() + '/workspace')
-  , cradle = require('cradle')
   , request = require('request')
+  , w = require('winston')
+  , eyes = require('eyes')
   , url = require('url')
-  
-  db = new(cradle.Connection)().database('testbed')
+  , database = 'testbed'
+  , db
+  , config
+  w.cli()
+  w.info('TESTBED')
+  w.info(new Date)
+
+  if(!module.parent){
+    config = require('./setup').deploy()
+    app.listen(config.port);
+  } else {
+    config = require('./setup').test()
+  }
+
+  db = require('./initialize')(config.database,function (err,db){
+    if(err){
+      w.error("DATABASE SETUP ERROR")
+      throw err
+    }
+    w.info("DATABASE '" + database + "' IS READY")
+  })
 
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -21,7 +41,7 @@ app.configure(function(){
 function save (repo){
   if(repo._id && !repo.saving){
     repo.saving = true
-    
+
     db.get('' + repo._id, function (err,doc){
       db.save({
         _id: '' + repo._id,
@@ -47,21 +67,26 @@ function save (repo){
 
 app.post('/', function (req,res){
 
-  console.log("*******************")
-  console.log(req.body)
-  console.log("*******************")
-
   if(!req.body)
     return res.send ({error: "Expected payload: property"})
   try{
   var payload = JSON.parse(req.body.payload)
   } catch (err){
+    w.error('could not parse POST JSON')
     return res.send ({
       error: "was not valid JSON", 
       was: req.body.payload, 
       exception: err.stack})  
   }
-  repo = testbed.Repo(payload.repository.owner.name,payload.repository.name)
+  w.info('loading new repo')
+  eyes.inspect(payload)
+ 
+  repo = testbed.Repo(
+    payload.repository.owner.name,
+    payload.repository.name, 
+    config.basedir) // load that from config.
+
+  repo.state.post = payload
 
   repo.on('change',function (event){
     console.log([repo.username,repo.project].join('/'),[].shift.call(arguments))
@@ -77,11 +102,9 @@ app.post('/', function (req,res){
     }
     res.send(data)
   })
-
 })
 
 app.get('/:username/:project/:commit', function (req,res){
-
   db.get([req.params.username, req.params.project, req.params.commit].join(','),
   function (err,data){
     res.render('result',data)
@@ -100,16 +123,10 @@ app.get('/:username?/:project?', function (req,res){
   db.view('all/status',opts, function (err,data){
   if(err) {return res.send(err)}
   data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
-  console.log(JSON.stringify(data))
-  data = JSON.parse(JSON.stringify(data))
-   console.log('******************',data)
-  // res.render('index', {rows: [{key:[1]},{key:[1,5]},{key:[2,3]}]})
-    //res.send(data)
-    res.render('index', {
-      rows: data
-    })
+  if(data.rows.length)
+    res.render('index', data)
+  else
+    res.render('empty',config)
+    
   })
 })
-
-
-app.listen(3000);

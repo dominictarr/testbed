@@ -1,10 +1,18 @@
-h1 testbed
-  - state.results.forEach(function (test){
-    h3= test.filename || test.name 
-      label= test.status
+ul
+  li
+    a(href= ['http://github.com', username,project].join('/'))
+      = username+'/'+ project
+  li
+    a(href= 'http://search.npmjs.org/#/'+state.package.name)
+      = state.package.name + '@' + state.package.version
+  li
+    a(href= ['http://github.com', username,project,'commit',state.commit].join('/'))
+      = state.commit
+- state.tests.forEach(function (test){
+  h3(class= test.status)= test.status+': '+(test.name || test.filename)
+  ol
     - test.tests.forEach(function (test){
-      h4= test.name 
-        div= test.status
+      li
+        div= test.status+': '+test.name
     - })
-  - })
-  
+- })

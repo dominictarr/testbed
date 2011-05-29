@@ -4,7 +4,31 @@ var exec = require('child_process').exec
   , find = require('wildfile').find
   , metatest = require('meta-test')
   , EventEmitter = require('events').EventEmitter
+
 ////winston.info('usuage: node pull username project')
+
+/*
+instead make this just a git wrapper which calls `git` and parses git log.
+then, the test & npm stuff is a decorator on that.
+
+then, express this with a hash of methods supported features
+
+{log: function (err,data,callback)}
+when wrap those function with something that calls git [key] [args]
+
+pretty fancy. maybe too fancy.
+
+hmm. this would wrap npm as well.
+
+it's just npm and git atm, so it's all program command args style
+
+there seems to be enough consistancy here to abstract, 
+
+the question is:
+
+  would this code get any better with a clever abstraction?
+
+*/
 
 function Repo(username,project,basedir){
   if(!(this instanceof Repo)) return new Repo(username,project)
@@ -38,8 +62,7 @@ var also = {
     },
 
     status: function  (callback){
-      exec(
-        ['git', 'status'].join (' '), 
+      exec('git status', 
         {cwd: this.path('basedir','username','project')}, 
         callback
       )
@@ -58,8 +81,7 @@ var also = {
 
     headCommit: function (callback){
       var self = this
-      exec(
-        ['git', 'log'].join (' '), 
+      exec('git log', 
         {cwd: this.dir()},
         function (err,data){
           if(err) throw err//FIXME
@@ -78,13 +100,11 @@ var also = {
         args.push([].shift.call(arguments))
       this.emit.apply(this, args)
       this.emit.apply(this, args.slice(1))
-      
     },
     pull: function (callback){
       //winston.info('pull ' + (self.username +'/'+ self.project).green)
       var self = this
-      exec(
-        ['git', 'pull'].join (' '), 
+      exec('git pull', 
         {cwd: this.dir()}, 
         function (err,data){
           self.setState(false,false,false)
@@ -127,7 +147,7 @@ var also = {
     cloneOrPull: function (callback){
       var self = this
       self.status(function (err,data){
-        self[(err ? 'clone' : 'pull')](callback)//if this fails 
+        self[(err ? 'clone' : 'pull')](callback)
       })
     },
 
@@ -138,27 +158,39 @@ var also = {
       function (err,json){
         //if(err) throw err//FIXME
         var package = eval('(' + json + ')')
-        //winston.info((package.name + '@' + package.version).bold)
+          , dev = package.devDependencies || {}
 
+        self.state.package = package
+
+          var devDependencies = Object.keys(dev).map(function (e){
+            return e +'@' + JSON.stringify(dev[e])
+          }).filter(function (e){//we don't need test frameworks.
+            return !!!/expresso|vows|nodeunit|meta-test/(e)
+          })
+          console.log("devDependencies",devDependencies)
+        if(devDependencies.length)
+          exec('npm install ' + devDependencies.join(' '),{cwd: self.dir()}, next)
+        else next()
+        function next(err,data){
+        if(err) return callback(err,data)
         exec([
           'mkdir', 'node_modules'].join(' '), 
           {cwd: join(self.basedir,self.username)}, 
           function (err){
-          if(err)
-            console.log(err)
-        //    if(err) throw err //file probably exist
-            exec([
-              'ln -s', 
-              self.dir(),
-              join(self.basedir, self.username, 'node_modules', package.name)
-              ].join(' '),
-              function (err){
-                self.setState(true,false,false)
-                self.change('init',err)
-                callback(err)
-              })//*/
+          if(err) console.log(err)
+          exec([
+            'ln -s', 
+            self.dir(),
+            join(self.basedir, self.username, 'node_modules', package.name)
+            ].join(' '),
+            function (err){
+              self.setState(true,false,false)
+              self.change('init',err)
+              callback(err)
+            })
           })
-        })
+        }
+      })
     },
 
     update: function (callback){
@@ -184,12 +216,12 @@ var also = {
           'project',
           'test','*.js'),
         function (err,tests){
-          self.state.results = []
+          self.state.tests = []
           function next (test){
             metatest.run({adapter: 'expresso', filename: test },
               function (err,report){
                 self.report = report
-                self.state.results.push(report)
+                self.state.tests.push(report)
                 self.change('test',err,report)
                 reports.push(report)
                 if(err)
@@ -242,24 +274,3 @@ function Testbed (basedir){
 }
 
 module.exports = Testbed
-
-if(!module.parent){
-
-  function shift (){
-    return process.argv.shift()
-  }
-
-  var node = shift()
-    , thisJs = shift()
-    , username = shift()
-    , project = shift();
-
-  var repo = new Testbed(process.cwd()).Repo(username,project)
-
-  repo.cloneOrPull(function (err){
-    repo.update(function (){
-      repo.init(console.log)
-    })
-  })
-}
-//*/
