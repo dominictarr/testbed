@@ -1,7 +1,7 @@
 
 var request = require('request')
 
-request.post({uri: 'http://localhost:1234', 
+request.post({uri: 'http://cloud:3000', 
   json: {payload: JSON.stringify({
     repository: {
       name:process.argv[3], //'curry', 

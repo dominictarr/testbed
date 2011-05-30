@@ -1,0 +1,1199 @@
+info it worked if it ends with ok
+verbose cli [ 'node',
+verbose cli   '/home/dominic/.nvm/v0.4.7/bin/npm',
+verbose cli   'install',
+verbose cli   '../meta-test/' ]
+info using npm@1.0.6
+info using node@v0.4.7
+verbose config file /home/dominic/.npmrc
+verbose config file /home/dominic/.nvm/v0.4.7/etc/npmrc
+silly testEngine { author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   name: 'testbed',
+silly testEngine   description: 'continuious integration for node',
+silly testEngine   version: '0.0.0',
+silly testEngine   repository: { url: '' },
+silly testEngine   main: './testbed',
+silly testEngine   scripts: 
+silly testEngine    { test: 'meta-test test/*.js',
+silly testEngine      start: 'node server.js' },
+silly testEngine   engines: { node: '>= 0.4.7' },
+silly testEngine   dependencies: 
+silly testEngine    { 'meta-test': '= 0.0.4',
+silly testEngine      express: '= 2.3.10',
+silly testEngine      eyes: '= 0.1.6',
+silly testEngine      request: '= 1.9.5',
+silly testEngine      cradle: '= 0.5.5',
+silly testEngine      'cradle-init': '= 0.0.x',
+silly testEngine      jade: '= 0.10.0',
+silly testEngine      wildfile: '= 0.0.x' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'testbed@0.0.0',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/package.json
+verbose loadDefaults testbed@0.0.0
+silly testEngine { name: 'jade',
+silly testEngine   description: 'Jade template engine',
+silly testEngine   version: '0.10.0',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   main: './index.js',
+silly testEngine   bin: { jade: './bin/jade' },
+silly testEngine   engines: { node: '>= 0.1.98' },
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'jade@0.10.0',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/jade/package.json
+verbose loadDefaults jade@0.10.0
+silly testEngine { name: 'express',
+silly testEngine   description: 'Sinatra inspired web development framework',
+silly testEngine   version: '2.3.10',
+silly testEngine   author: 
+silly testEngine    { name: 'TJ Holowaychuk',
+silly testEngine      email: 'tj@vision-media.ca' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'TJ Holowaychuk',
+silly testEngine        email: 'tj@vision-media.ca' },
+silly testEngine      { name: 'Aaron Heckmann',
+silly testEngine        email: 'aaron.heckmann+github@gmail.com' },
+silly testEngine      { name: 'Ciaran Jessup', email: 'ciaranj@gmail.com' },
+silly testEngine      { name: 'Guillermo Rauch', email: 'rauchg@gmail.com' } ],
+silly testEngine   dependencies: 
+silly testEngine    { connect: '>= 1.4.1 < 2.0.0',
+silly testEngine      mime: '>= 0.0.1',
+silly testEngine      qs: '>= 0.0.6' },
+silly testEngine   devDependencies: 
+silly testEngine    { 'connect-form': '0.2.1',
+silly testEngine      ejs: '0.4.2',
+silly testEngine      expresso: '0.7.2',
+silly testEngine      hamljs: '0.5.1',
+silly testEngine      jade: '0.11.0',
+silly testEngine      stylus: '0.13.0',
+silly testEngine      should: '0.2.1',
+silly testEngine      'express-messages': '0.0.2',
+silly testEngine      'node-markdown': '>= 0.0.1',
+silly testEngine      'connect-redis': '>= 0.0.1' },
+silly testEngine   keywords: [ 'framework', 'sinatra', 'web', 'rest', 'restful' ],
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/visionmedia/express.git' },
+silly testEngine   main: 'index',
+silly testEngine   bin: { express: './bin/express' },
+silly testEngine   engines: { node: '>= 0.4.1 < 0.5.0' },
+silly testEngine   _id: 'express@2.3.10',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/express/package.json
+verbose loadDefaults express@2.3.10
+silly testEngine { name: 'cradle',
+silly testEngine   description: 'the high-level, caching, CouchDB library',
+silly testEngine   url: 'http://cloudhead.io/cradle',
+silly testEngine   keywords: [ 'couchdb', 'database', 'couch' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Alexis Sellier',
+silly testEngine      email: 'self@cloudhead.net' },
+silly testEngine   contributors: [],
+silly testEngine   dependencies: { vargs: '>=0.1.0', vows: '>=0.5.4' },
+silly testEngine   version: '0.5.5',
+silly testEngine   main: './lib/cradle',
+silly testEngine   directories: { test: './test' },
+silly testEngine   engines: { node: '>=0.3.6' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'cradle@0.5.5',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/cradle/package.json
+verbose loadDefaults cradle@0.5.5
+silly testEngine { name: 'eyes',
+silly testEngine   description: 'a customizable value inspector',
+silly testEngine   url: 'http://github.com/cloudhead/eyes.js',
+silly testEngine   keywords: [ 'inspector', 'debug', 'inspect', 'print' ],
+silly testEngine   author: 
+silly testEngine    { name: 'Alexis Sellier',
+silly testEngine      email: 'self@cloudhead.net' },
+silly testEngine   contributors: [],
+silly testEngine   licenses: [ 'MIT' ],
+silly testEngine   dependencies: {},
+silly testEngine   main: './lib/eyes',
+silly testEngine   version: '0.1.7nullitem',
+silly testEngine   directories: { lib: './lib', test: './test' },
+silly testEngine   engines: { node: '> 0.1.90' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'eyes@0.1.7nullitem',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/eyes/package.json
+verbose loadDefaults eyes@0.1.7nullitem
+silly testEngine { name: 'request',
+silly testEngine   description: 'Simplified HTTP request client.',
+silly testEngine   tags: [ 'http', 'simple', 'util', 'utility' ],
+silly testEngine   version: '1.9.5',
+silly testEngine   author: 
+silly testEngine    { name: 'Mikeal Rogers',
+silly testEngine      email: 'mikeal.rogers@gmail.com' },
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/mikeal/request.git' },
+silly testEngine   bugs: { url: 'http://github.com/mikeal/request/issues' },
+silly testEngine   engines: [ 'node >= 0.3.6', node: ' >= 0.3.6' ],
+silly testEngine   main: './main',
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'request@1.9.5',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/request/package.json
+verbose loadDefaults request@1.9.5
+silly testEngine { name: 'prompt',
+silly testEngine   version: '0.0.4',
+silly testEngine   description: 'Prompt the user of command line scripts while running.',
+silly testEngine   main: './prompt.js',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/jesusabdullah/node-prompt.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Joshua Holbrook',
+silly testEngine      email: 'josh.holbrook@gmail.com',
+silly testEngine      url: 'http://jesusabdullah.github.com' },
+silly testEngine   contributors: 
+silly testEngine    [ { name: 'Peteris Krumins',
+silly testEngine        url: 'http://catonmat.net' },
+silly testEngine      { name: 'Lele \'El Dios\'',
+silly testEngine        url: 'http://lele.amicofigo.com/' } ],
+silly testEngine   engine: [ 'node >=0.1.100' ],
+silly testEngine   dependencies: {},
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'prompt@0.0.4',
+silly testEngine   engines: { node: '*' },
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/prompt/package.json
+verbose loadDefaults prompt@0.0.4
+silly testEngine { name: 'wildfile',
+silly testEngine   description: 'expand path/*/with*/wildcards.js',
+silly testEngine   version: '0.0.0',
+silly testEngine   homepage: 'https://github.com/dominictarr/wildfile',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/wildfile.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com',
+silly testEngine      url: 'http://bit.ly/dominictarr' },
+silly testEngine   directories: { lib: '.' },
+silly testEngine   devDependencies: { 'meta-test': '>=0.0.2', ctrlflow: '*', 'it-is': '*' },
+silly testEngine   scripts: { test: 'meta-test test/*.js' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   files: [ '' ],
+silly testEngine   dependencies: {},
+silly testEngine   _id: 'wildfile@0.0.0',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/wildfile/package.json
+verbose loadDefaults wildfile@0.0.0
+silly testEngine { author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   name: 'testbed',
+silly testEngine   description: 'continuious integration for node',
+silly testEngine   version: '0.0.0',
+silly testEngine   repository: { url: '' },
+silly testEngine   main: './testbed',
+silly testEngine   scripts: 
+silly testEngine    { test: 'meta-test test/*.js',
+silly testEngine      start: 'node server.js' },
+silly testEngine   engines: { node: '>= 0.4.7' },
+silly testEngine   dependencies: 
+silly testEngine    { 'meta-test': '= 0.0.4',
+silly testEngine      express: '= 2.3.10',
+silly testEngine      eyes: '= 0.1.6',
+silly testEngine      request: '= 1.9.5',
+silly testEngine      cradle: '= 0.5.5',
+silly testEngine      'cradle-init': '= 0.0.x',
+silly testEngine      jade: '= 0.10.0',
+silly testEngine      wildfile: '= 0.0.x' },
+silly testEngine   devDependencies: {},
+silly testEngine   _id: 'testbed@0.0.0',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/testbed/package.json
+verbose loadDefaults testbed@0.0.0
+verbose from cache /home/dominic/dev/testbed/package.json
+verbose into /home/dominic/dev/testbed [ '../meta-test/' ]
+verbose cache add [ '../meta-test/', null ]
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching ../meta-test/package.json
+verbose loadDefaults meta-test@0.0.4
+verbose pack /home/dominic/dev/meta-test /tmp/npm-1306636537000/1306636537000-0.46689181751571596/tmp.tgz
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/home/dominic/dev/meta-test' }
+verbose caching /home/dominic/dev/meta-test/package.json
+verbose loadDefaults meta-test@0.0.4
+verbose mkdir done: /tmp/npm-1306636537000/1306636537000-0.46689181751571596 755
+verbose mkdir'ed /tmp/npm-1306636537000/1306636537000-0.46689181751571596
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'meta-test/nextsteps.txt',
+silly tar args   'meta-test/arg-parser.js',
+silly tar args   'meta-test/package.json',
+silly tar args   'meta-test/pretty.js',
+silly tar args   'meta-test/browser-runner.js',
+silly tar args   'meta-test/all.js',
+silly tar args   'meta-test/depends.js',
+silly tar args   'meta-test/README.md',
+silly tar args   'meta-test/selector.js',
+silly tar args   'meta-test/.gitignore',
+silly tar args   'meta-test/runner.js',
+silly tar args   'meta-test/report.js',
+silly tar args   'meta-test/all_tests.sh',
+silly tar args   'meta-test/loader.js',
+silly tar args   'meta-test/go.js',
+silly tar args   'meta-test/platform.js',
+silly tar args   'meta-test/child_runner.js',
+silly tar args   'meta-test/plugins.js',
+silly tar args   'meta-test/random_examples/b.json',
+silly tar args   'meta-test/random_examples/a.json',
+silly tar args   'meta-test/random_examples/c.json',
+silly tar args   'meta-test/adapters/expresso.js',
+silly tar args   'meta-test/adapters/nodeunit.js',
+silly tar args   'meta-test/adapters/node.js',
+silly tar args   'meta-test/adapters/synct.js',
+silly tar args   'meta-test/adapters/vows.js',
+silly tar args   'meta-test/adapters/asynct.js',
+silly tar args   'meta-test/_oldtest/runner.plugins.node.js',
+silly tar args   'meta-test/plugins/logger.js',
+silly tar args   'meta-test/plugins/npm-remapper.js',
+silly tar args   'meta-test/plugins/remapper.js',
+silly tar args   'meta-test/test/arg-parser.node.js',
+silly tar args   'meta-test/test/timeout.node.js',
+silly tar args   'meta-test/test/runner.depends.node.js',
+silly tar args   'meta-test/test/require.expresso.js',
+silly tar args   'meta-test/test/synct.node.js',
+silly tar args   'meta-test/test/selector.node.js',
+silly tar args   'meta-test/test/asynct.setup-teardown.node.js',
+silly tar args   'meta-test/test/nodeunit.node.js',
+silly tar args   'meta-test/test/vows.node.js',
+silly tar args   'meta-test/test/platform.node.js',
+silly tar args   'meta-test/test/asynct.node.js',
+silly tar args   'meta-test/test/runner.node.js',
+silly tar args   'meta-test/test/report.node.js',
+silly tar args   'meta-test/test/plugins.node.js',
+silly tar args   'meta-test/test/expresso.node.js',
+silly tar args   'meta-test/test/env/readme.markdown',
+silly tar args   'meta-test/test/env/depends.node.js',
+silly tar args   'meta-test/test/env/runner-versions.node.js',
+silly tar args   'meta-test/test/env/remap.node.js',
+silly tar args   'meta-test/test/dummy-plugins/dummy1.js',
+silly tar args   'meta-test/test/dummy-plugins/dummy2.js',
+silly tar args   'meta-test/test/dummy-plugins/dummy3.js',
+silly tar args   'meta-test/test/lib/asynct2.js',
+silly tar args   'meta-test/test/lib/helper.js',
+silly tar args   'meta-test/test/examples/a.js',
+silly tar args   'meta-test/test/examples/z.js',
+silly tar args   'meta-test/test/examples/i.js',
+silly tar args   'meta-test/test/examples/z2.js',
+silly tar args   'meta-test/test/examples/k.js',
+silly tar args   'meta-test/test/examples/e.js',
+silly tar args   'meta-test/test/examples/j.js',
+silly tar args   'meta-test/test/examples/x.js',
+silly tar args   'meta-test/test/examples/k2.js',
+silly tar args   'meta-test/test/examples/c.js',
+silly tar args   'meta-test/test/examples/y.js',
+silly tar args   'meta-test/test/examples/h.js',
+silly tar args   'meta-test/test/examples/i2.js',
+silly tar args   'meta-test/test/examples/b.js',
+silly tar args   'meta-test/test/examples/b2.js',
+silly tar args   'meta-test/test/examples/d.js',
+silly tar args   'meta-test/test/examples/d2.js',
+silly tar args   'meta-test/examples/what_dir3.js',
+silly tar args   'meta-test/examples/dummy-adapter.js',
+silly tar args   'meta-test/examples/package.json',
+silly tar args   'meta-test/examples/test-adapters.js',
+silly tar args   'meta-test/examples/test/null.node.js',
+silly tar args   'meta-test/examples/test/syntax_error.node.js',
+silly tar args   'meta-test/examples/test/async_error.node.js',
+silly tar args   'meta-test/examples/test/error.node.js',
+silly tar args   'meta-test/examples/test/hang.node.js',
+silly tar args   'meta-test/examples/test/pass.node.js',
+silly tar args   'meta-test/examples/test/simple.nodeunit.js',
+silly tar args   'meta-test/examples/test/test-synct-pass.js',
+silly tar args   'meta-test/examples/test/timeout.asynct.js',
+silly tar args   'meta-test/examples/test/simple.vows.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/tmp/npm-1306636537000/1306636537000-0.46689181751571596/tmp.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm"
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/nextsteps.txt
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/arg-parser.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/package.json
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/pretty.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/browser-runner.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/all.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/depends.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/README.md
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/selector.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/.gitignore
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/runner.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/report.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/all_tests.sh
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/loader.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/go.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/platform.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/child_runner.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/plugins.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/random_examples/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/random_examples/c.json
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/random_examples/b.json
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/random_examples/a.json
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/expresso.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/nodeunit.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/synct.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/vows.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/adapters/asynct.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/_oldtest/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/_oldtest/runner.plugins.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/plugins/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/plugins/logger.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/plugins/npm-remapper.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/plugins/remapper.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/arg-parser.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/timeout.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/runner.depends.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/require.expresso.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/synct.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/selector.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/asynct.setup-teardown.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/nodeunit.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/vows.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/platform.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/asynct.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/runner.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/report.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/plugins.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/expresso.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/env/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/env/readme.markdown
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/env/depends.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/env/runner-versions.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/env/remap.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/dummy-plugins/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/dummy-plugins/dummy1.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/dummy-plugins/dummy2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/dummy-plugins/dummy3.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/lib/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/lib/asynct2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/lib/helper.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/a.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/z.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/i.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/z2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/k.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/e.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/j.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/x.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/k2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/c.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/y.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/h.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/i2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/b.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/b2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/d.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/test/examples/d2.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/what_dir3.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/dummy-adapter.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/package.json
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test-adapters.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/null.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/syntax_error.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/async_error.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/error.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/hang.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/pass.node.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/simple.nodeunit.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/test-synct-pass.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/timeout.asynct.js
+silly asyncMap in gTP /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test/examples/test/simple.vows.js
+verbose gunzed /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test
+verbose rm'ed /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package
+verbose renamed [ '/tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/___package.npm/meta-test',
+verbose renamed   '/tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package' ]
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   path: '/tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package' }
+verbose caching /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package/package.json
+verbose loadDefaults meta-test@0.0.4
+verbose tarball contents [ 'package' ]
+verbose from cache /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package/package.json
+verbose pack /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package /home/dominic/.npm/meta-test/0.0.4/package.tgz
+verbose from cache /tmp/npm-1306636537000/1306636537000-0.46689181751571596/contents/package/package.json
+verbose mkdir'ed /home/dominic/.npm/meta-test/0.0.4
+verbose tar about to write tar and gzip it.
+silly tar args [ '-cvf',
+silly tar args   '-',
+silly tar args   'package/nextsteps.txt',
+silly tar args   'package/arg-parser.js',
+silly tar args   'package/package.json',
+silly tar args   'package/pretty.js',
+silly tar args   'package/browser-runner.js',
+silly tar args   'package/all.js',
+silly tar args   'package/depends.js',
+silly tar args   'package/README.md',
+silly tar args   'package/selector.js',
+silly tar args   'package/.gitignore',
+silly tar args   'package/runner.js',
+silly tar args   'package/report.js',
+silly tar args   'package/all_tests.sh',
+silly tar args   'package/loader.js',
+silly tar args   'package/go.js',
+silly tar args   'package/platform.js',
+silly tar args   'package/child_runner.js',
+silly tar args   'package/plugins.js',
+silly tar args   'package/random_examples/c.json',
+silly tar args   'package/random_examples/b.json',
+silly tar args   'package/random_examples/a.json',
+silly tar args   'package/adapters/expresso.js',
+silly tar args   'package/adapters/nodeunit.js',
+silly tar args   'package/adapters/node.js',
+silly tar args   'package/adapters/synct.js',
+silly tar args   'package/adapters/vows.js',
+silly tar args   'package/adapters/asynct.js',
+silly tar args   'package/_oldtest/runner.plugins.node.js',
+silly tar args   'package/plugins/logger.js',
+silly tar args   'package/plugins/remapper.js',
+silly tar args   'package/plugins/npm-remapper.js',
+silly tar args   'package/test/arg-parser.node.js',
+silly tar args   'package/test/timeout.node.js',
+silly tar args   'package/test/runner.depends.node.js',
+silly tar args   'package/test/require.expresso.js',
+silly tar args   'package/test/synct.node.js',
+silly tar args   'package/test/selector.node.js',
+silly tar args   'package/test/asynct.setup-teardown.node.js',
+silly tar args   'package/test/nodeunit.node.js',
+silly tar args   'package/test/vows.node.js',
+silly tar args   'package/test/platform.node.js',
+silly tar args   'package/test/asynct.node.js',
+silly tar args   'package/test/runner.node.js',
+silly tar args   'package/test/report.node.js',
+silly tar args   'package/test/plugins.node.js',
+silly tar args   'package/test/expresso.node.js',
+silly tar args   'package/test/env/readme.markdown',
+silly tar args   'package/test/env/depends.node.js',
+silly tar args   'package/test/env/runner-versions.node.js',
+silly tar args   'package/test/env/remap.node.js',
+silly tar args   'package/test/dummy-plugins/dummy1.js',
+silly tar args   'package/test/dummy-plugins/dummy2.js',
+silly tar args   'package/test/dummy-plugins/dummy3.js',
+silly tar args   'package/test/lib/asynct2.js',
+silly tar args   'package/test/lib/helper.js',
+silly tar args   'package/test/examples/a.js',
+silly tar args   'package/test/examples/z.js',
+silly tar args   'package/test/examples/i.js',
+silly tar args   'package/test/examples/z2.js',
+silly tar args   'package/test/examples/k.js',
+silly tar args   'package/test/examples/e.js',
+silly tar args   'package/test/examples/j.js',
+silly tar args   'package/test/examples/x.js',
+silly tar args   'package/test/examples/k2.js',
+silly tar args   'package/test/examples/c.js',
+silly tar args   'package/test/examples/y.js',
+silly tar args   'package/test/examples/h.js',
+silly tar args   'package/test/examples/i2.js',
+silly tar args   'package/test/examples/b.js',
+silly tar args   'package/test/examples/b2.js',
+silly tar args   'package/test/examples/d.js',
+silly tar args   'package/test/examples/d2.js',
+silly tar args   'package/examples/what_dir3.js',
+silly tar args   'package/examples/dummy-adapter.js',
+silly tar args   'package/examples/package.json',
+silly tar args   'package/examples/test-adapters.js',
+silly tar args   'package/examples/test/null.node.js',
+silly tar args   'package/examples/test/syntax_error.node.js',
+silly tar args   'package/examples/test/async_error.node.js',
+silly tar args   'package/examples/test/error.node.js',
+silly tar args   'package/examples/test/hang.node.js',
+silly tar args   'package/examples/test/pass.node.js',
+silly tar args   'package/examples/test/simple.nodeunit.js',
+silly tar args   'package/examples/test/test-synct-pass.js',
+silly tar args   'package/examples/test/timeout.asynct.js',
+silly tar args   'package/examples/test/simple.vows.js' ]
+verbose success tar -cvf - <file list elided>
+verbose success gzip "--stdout"
+verbose mkdir done: /home/dominic/.npm/meta-test/0.0.4/___package.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/dominic/.npm/meta-test/0.0.4/package
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/home/dominic/.npm/meta-test/0.0.4/package.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/home/dominic/.npm/meta-test/0.0.4/___package.npm"
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/nextsteps.txt
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/arg-parser.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/package.json
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/pretty.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/browser-runner.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/all.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/depends.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/README.md
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/selector.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/.gitignore
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/runner.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/report.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/all_tests.sh
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/loader.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/go.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/platform.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/child_runner.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/plugins.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/random_examples/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/random_examples/c.json
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/random_examples/b.json
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/random_examples/a.json
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/expresso.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/nodeunit.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/synct.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/vows.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/adapters/asynct.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/_oldtest/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/_oldtest/runner.plugins.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/plugins/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/plugins/logger.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/plugins/npm-remapper.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/plugins/remapper.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/arg-parser.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/timeout.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/runner.depends.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/require.expresso.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/synct.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/selector.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/asynct.setup-teardown.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/nodeunit.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/vows.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/platform.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/asynct.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/runner.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/report.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/plugins.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/expresso.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/env/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/env/readme.markdown
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/env/depends.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/env/runner-versions.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/env/remap.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/dummy-plugins/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/dummy-plugins/dummy1.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/dummy-plugins/dummy2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/dummy-plugins/dummy3.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/lib/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/lib/asynct2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/lib/helper.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/a.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/z.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/i.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/z2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/k.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/e.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/j.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/x.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/k2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/c.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/y.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/h.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/i2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/b.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/b2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/d.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/test/examples/d2.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/what_dir3.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/dummy-adapter.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/package.json
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test-adapters.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/null.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/syntax_error.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/async_error.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/error.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/hang.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/pass.node.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/simple.nodeunit.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/test-synct-pass.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/timeout.asynct.js
+silly asyncMap in gTP /home/dominic/.npm/meta-test/0.0.4/___package.npm/package/examples/test/simple.vows.js
+verbose gunzed /home/dominic/.npm/meta-test/0.0.4/___package.npm/package
+verbose rm'ed /home/dominic/.npm/meta-test/0.0.4/package
+verbose renamed [ '/home/dominic/.npm/meta-test/0.0.4/___package.npm/package',
+verbose renamed   '/home/dominic/.npm/meta-test/0.0.4/package' ]
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: '1a2c2804282cfcbaffb3adbb181286d17130f655' } }
+verbose caching /home/dominic/.npm/meta-test/0.0.4/package/package.json
+verbose loadDefaults meta-test@0.0.4
+silly updated sha bytes 26886
+info shasum 1a2c2804282cfcbaffb3adbb181286d17130f655
+info shasum /home/dominic/.npm/meta-test/0.0.4/package.tgz
+verbose from cache /home/dominic/.npm/meta-test/0.0.4/package/package.json
+verbose chmod /home/dominic/.npm/meta-test/0.0.4/package.json 644
+verbose chmod /home/dominic/.npm/meta-test/0.0.4/package.tgz 644
+silly resolved [ { name: 'meta-test',
+silly resolved     description: 'framework for writing unit test frameworks',
+silly resolved     version: '0.0.4',
+silly resolved     homepage: 'http://github.com/dominictarr/meta-test',
+silly resolved     repository: 
+silly resolved      { type: 'git',
+silly resolved        url: 'git://github.com/dominictarr/meta-test2.git' },
+silly resolved     author: 
+silly resolved      { name: 'Dominic Tarr',
+silly resolved        email: 'dominic.tarr@gmail.com' },
+silly resolved     main: './runner.js',
+silly resolved     directories: { lib: '' },
+silly resolved     bin: { 'meta-test': './go.js' },
+silly resolved     dependencies: 
+silly resolved      { style: '0.1.x',
+silly resolved        curry: '0.0.x',
+silly resolved        render: '0.0.x',
+silly resolved        easyfs: '0.0.x',
+silly resolved        'nih-op': '0.0.x',
+silly resolved        ctrlflow: '0.0.x',
+silly resolved        nodeunit: '>=0.5.0',
+silly resolved        vows: '>=0.5.0',
+silly resolved        expresso: '>=0.7.0',
+silly resolved        trees: '0.0.x',
+silly resolved        nvm: '>=0.0.6' },
+silly resolved     devDependencies: { 'it-is': '*' },
+silly resolved     scripts: { test: '. ./all_tests.sh' },
+silly resolved     engines: { node: '>=0.2.0' },
+silly resolved     _id: 'meta-test@0.0.4',
+silly resolved     _engineSupported: true,
+silly resolved     _npmVersion: '1.0.6',
+silly resolved     _nodeVersion: 'v0.4.7',
+silly resolved     _defaultsLoaded: true,
+silly resolved     dist: { shasum: '1a2c2804282cfcbaffb3adbb181286d17130f655' } } ]
+info into /home/dominic/dev/testbed meta-test@0.0.4
+info installOne meta-test@0.0.4
+info unbuild /home/dominic/dev/testbed/node_modules/meta-test
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true,
+silly testEngine   dist: { shasum: '1a2c2804282cfcbaffb3adbb181286d17130f655' } }
+verbose caching /home/dominic/.npm/meta-test/0.0.4/package.json
+verbose mkdir done: /home/dominic/dev/testbed/node_modules/___meta-test.npm 755
+verbose unpack_ uid, gid [ undefined, undefined ]
+verbose unpackTarget /home/dominic/dev/testbed/node_modules/meta-test
+silly gunzTarPerm modes [ '755', '644' ]
+verbose success gzip "--decompress" "--stdout" "/home/dominic/.npm/meta-test/0.0.4/package.tgz"
+verbose success tar "-mvxpf" "-" "--no-same-owner" "-C" "/home/dominic/dev/testbed/node_modules/___meta-test.npm"
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/nextsteps.txt
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/arg-parser.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/package.json
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/pretty.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/browser-runner.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/all.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/depends.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/README.md
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/selector.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/.gitignore
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/runner.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/report.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/all_tests.sh
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/loader.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/go.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/platform.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/child_runner.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/plugins.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/random_examples/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/random_examples/c.json
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/random_examples/b.json
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/random_examples/a.json
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/expresso.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/nodeunit.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/synct.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/vows.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/adapters/asynct.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/_oldtest/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/_oldtest/runner.plugins.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/plugins/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/plugins/logger.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/plugins/npm-remapper.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/plugins/remapper.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/arg-parser.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/timeout.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/runner.depends.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/require.expresso.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/synct.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/selector.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/asynct.setup-teardown.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/nodeunit.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/vows.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/platform.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/asynct.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/runner.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/report.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/plugins.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/expresso.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/env/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/env/readme.markdown
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/env/depends.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/env/runner-versions.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/env/remap.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/dummy-plugins/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/dummy-plugins/dummy1.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/dummy-plugins/dummy2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/dummy-plugins/dummy3.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/lib/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/lib/asynct2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/lib/helper.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/a.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/z.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/i.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/z2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/k.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/e.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/j.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/x.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/k2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/c.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/y.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/h.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/i2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/b.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/b2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/d.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/test/examples/d2.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/what_dir3.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/dummy-adapter.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/package.json
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test-adapters.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/null.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/syntax_error.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/async_error.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/error.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/hang.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/pass.node.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/simple.nodeunit.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/test-synct-pass.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/timeout.asynct.js
+silly asyncMap in gTP /home/dominic/dev/testbed/node_modules/___meta-test.npm/package/examples/test/simple.vows.js
+verbose gunzed /home/dominic/dev/testbed/node_modules/___meta-test.npm/package
+verbose rm'ed /home/dominic/dev/testbed/node_modules/meta-test
+verbose renamed [ '/home/dominic/dev/testbed/node_modules/___meta-test.npm/package',
+verbose renamed   '/home/dominic/dev/testbed/node_modules/meta-test' ]
+silly testEngine { name: 'meta-test',
+silly testEngine   description: 'framework for writing unit test frameworks',
+silly testEngine   version: '0.0.4',
+silly testEngine   homepage: 'http://github.com/dominictarr/meta-test',
+silly testEngine   repository: 
+silly testEngine    { type: 'git',
+silly testEngine      url: 'git://github.com/dominictarr/meta-test2.git' },
+silly testEngine   author: 
+silly testEngine    { name: 'Dominic Tarr',
+silly testEngine      email: 'dominic.tarr@gmail.com' },
+silly testEngine   main: './runner.js',
+silly testEngine   directories: { lib: '' },
+silly testEngine   bin: { 'meta-test': './go.js' },
+silly testEngine   dependencies: 
+silly testEngine    { style: '0.1.x',
+silly testEngine      curry: '0.0.x',
+silly testEngine      render: '0.0.x',
+silly testEngine      easyfs: '0.0.x',
+silly testEngine      'nih-op': '0.0.x',
+silly testEngine      ctrlflow: '0.0.x',
+silly testEngine      nodeunit: '>=0.5.0',
+silly testEngine      vows: '>=0.5.0',
+silly testEngine      expresso: '>=0.7.0',
+silly testEngine      trees: '0.0.x',
+silly testEngine      nvm: '>=0.0.6' },
+silly testEngine   devDependencies: { 'it-is': '*' },
+silly testEngine   scripts: { test: '. ./all_tests.sh' },
+silly testEngine   engines: { node: '>=0.2.0' },
+silly testEngine   _id: 'meta-test@0.0.4',
+silly testEngine   _engineSupported: true,
+silly testEngine   _npmVersion: '1.0.6',
+silly testEngine   _nodeVersion: 'v0.4.7',
+silly testEngine   _defaultsLoaded: true }
+verbose caching /home/dominic/dev/testbed/node_modules/meta-test/package.json
+verbose loadDefaults meta-test@0.0.4
+info preinstall meta-test@0.0.4
+verbose from cache /home/dominic/dev/testbed/node_modules/meta-test/package.json
+verbose into /home/dominic/dev/testbed/node_modules/meta-test [ 'style@0.1.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'curry@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'render@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'easyfs@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'nih-op@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'ctrlflow@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'nodeunit@>=0.5.0',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'vows@>=0.5.0',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'expresso@>=0.7.0',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'trees@0.0.x',
+verbose into /home/dominic/dev/testbed/node_modules/meta-test   'nvm@>=0.0.6' ]
+verbose cache add [ 'style@0.1.x', null ]
+info addNamed [ 'style', '0.1.x' ]
+verbose addNamed [ null, '>=0.1.0- <0.2.0-' ]
+verbose cache add [ 'curry@0.0.x', null ]
+info addNamed [ 'curry', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'render@0.0.x', null ]
+info addNamed [ 'render', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'easyfs@0.0.x', null ]
+info addNamed [ 'easyfs', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'nih-op@0.0.x', null ]
+info addNamed [ 'nih-op', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'ctrlflow@0.0.x', null ]
+info addNamed [ 'ctrlflow', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'nodeunit@>=0.5.0', null ]
+info addNamed [ 'nodeunit', '>=0.5.0' ]
+verbose addNamed [ null, '>=0.5.0' ]
+verbose cache add [ 'vows@>=0.5.0', null ]
+info addNamed [ 'vows', '>=0.5.0' ]
+verbose addNamed [ null, '>=0.5.0' ]
+verbose cache add [ 'expresso@>=0.7.0', null ]
+info addNamed [ 'expresso', '>=0.7.0' ]
+verbose addNamed [ null, '>=0.7.0' ]
+verbose cache add [ 'trees@0.0.x', null ]
+info addNamed [ 'trees', '0.0.x' ]
+verbose addNamed [ null, '>=0.0.0- <0.1.0-' ]
+verbose cache add [ 'nvm@>=0.0.6', null ]
+info addNamed [ 'nvm', '>=0.0.6' ]
+verbose addNamed [ null, '>=0.0.6' ]
+verbose GET render
+verbose raw, before any munging render
+verbose url resolving [ 'http://registry.npmjs.org/', './render' ]
+verbose url resolved http://registry.npmjs.org/render
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/render',
+verbose url parsed   pathname: '/render' }
+verbose GET easyfs
+verbose raw, before any munging easyfs
+verbose url resolving [ 'http://registry.npmjs.org/', './easyfs' ]
+verbose url resolved http://registry.npmjs.org/easyfs
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/easyfs',
+verbose url parsed   pathname: '/easyfs' }
+verbose GET nih-op
+verbose raw, before any munging nih-op
+verbose url resolving [ 'http://registry.npmjs.org/', './nih-op' ]
+verbose url resolved http://registry.npmjs.org/nih-op
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/nih-op',
+verbose url parsed   pathname: '/nih-op' }
+verbose GET ctrlflow
+verbose raw, before any munging ctrlflow
+verbose url resolving [ 'http://registry.npmjs.org/', './ctrlflow' ]
+verbose url resolved http://registry.npmjs.org/ctrlflow
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/ctrlflow',
+verbose url parsed   pathname: '/ctrlflow' }
+verbose GET nodeunit
+verbose raw, before any munging nodeunit
+verbose url resolving [ 'http://registry.npmjs.org/', './nodeunit' ]
+verbose url resolved http://registry.npmjs.org/nodeunit
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/nodeunit',
+verbose url parsed   pathname: '/nodeunit' }
+verbose GET vows
+verbose raw, before any munging vows
+verbose url resolving [ 'http://registry.npmjs.org/', './vows' ]
+verbose url resolved http://registry.npmjs.org/vows
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/vows',
+verbose url parsed   pathname: '/vows' }
+verbose GET trees
+verbose raw, before any munging trees
+verbose url resolving [ 'http://registry.npmjs.org/', './trees' ]
+verbose url resolved http://registry.npmjs.org/trees
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/trees',
+verbose url parsed   pathname: '/trees' }
+verbose about to build /home/dominic/dev/testbed/node_modules/meta-test
+ERR! error installing meta-test@0.0.4 Error: ECONNREFUSED, Could not contact DNS servers
+ERR! error installing meta-test@0.0.4     at IOWatcher.callback (dns.js:74:15)
+info unbuild /home/dominic/dev/testbed/node_modules/meta-test
+verbose from cache /home/dominic/dev/testbed/node_modules/meta-test/package.json
+info preuninstall meta-test@0.0.4
+verbose GET nvm
+verbose raw, before any munging nvm
+verbose url resolving [ 'http://registry.npmjs.org/', './nvm' ]
+verbose url resolved http://registry.npmjs.org/nvm
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/nvm',
+verbose url parsed   pathname: '/nvm' }
+info uninstall meta-test@0.0.4
+verbose unbuild meta-test@0.0.4 [ false,
+verbose unbuild meta-test@0.0.4   '/home/dominic/.nvm/v0.4.7/lib/node_modules',
+verbose unbuild meta-test@0.0.4   '/home/dominic/dev/testbed/node_modules' ]
+verbose binRoot [ '/home/dominic/dev/testbed/node_modules/.bin',
+verbose binRoot   { 'meta-test': './go.js' } ]
+verbose GET style
+verbose raw, before any munging style
+verbose url resolving [ 'http://registry.npmjs.org/', './style' ]
+verbose url resolved http://registry.npmjs.org/style
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/style',
+verbose url parsed   pathname: '/style' }
+verbose etag "D87WR4J3QLQB3M2HP4JP59S0H"
+verbose GET curry
+verbose raw, before any munging curry
+verbose url resolving [ 'http://registry.npmjs.org/', './curry' ]
+verbose url resolved http://registry.npmjs.org/curry
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/curry',
+verbose url parsed   pathname: '/curry' }
+verbose etag "ACDI7EYCEXYF2AOSBSGXZ0X04"
+verbose GET expresso
+verbose raw, before any munging expresso
+verbose url resolving [ 'http://registry.npmjs.org/', './expresso' ]
+verbose url resolved http://registry.npmjs.org/expresso
+verbose url parsed { protocol: 'http:',
+verbose url parsed   slashes: true,
+verbose url parsed   host: 'registry.npmjs.org',
+verbose url parsed   hostname: 'registry.npmjs.org',
+verbose url parsed   href: 'http://registry.npmjs.org/expresso',
+verbose url parsed   pathname: '/expresso' }
+verbose etag "A0NTXXNWAJVI08YTR351QE0LQ"
+info postuninstall meta-test@0.0.4
+verbose installOne cb meta-test@0.0.4
+ERR! Error: ECONNREFUSED, Could not contact DNS servers
+ERR!     at IOWatcher.callback (dns.js:74:15)
+ERR! Report this *entire* log at:
+ERR!     <http://github.com/isaacs/npm/issues>
+ERR! or email it to:
+ERR!     <npm-@googlegroups.com>
+ERR! 
+ERR! System Linux 2.6.35-28-generic
+ERR! command "node" "/home/dominic/.nvm/v0.4.7/bin/npm" "install" "../meta-test/"
+verbose exit [ 11, true ]
