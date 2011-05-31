@@ -124,9 +124,10 @@ app.get('/:username?/:project?', function (req,res){
     if(err) {return res.send(err)}
     data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
     console.log(render(data, {multiline: true}))
-    if(data.rows.length)
+    if(data.rows.length) {
+      data.rows = data.rows.reverse()
       res.render('index', data)
-    else
+    } else
       res.render('empty',config)
   })
 })

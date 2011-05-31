@@ -1,7 +1,25 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: hsl(120,50%,60%);
+  background: hsl(270,20%,20%);
 }
+.success {
+ color: hsl(120,70%,50%); 
+}
+
+.failure {
+ color: hsl(90,70%,50%); 
+}
+
+.error {
+ color: hsl(0,70%,50%); 
+}
+
+li {
+  margin: 5px;
+}
+
 
 a {
   color: #00B7FF;
