@@ -18,7 +18,7 @@
     "it-is": "0.0.x",
     "express": "= 2.3.10",
     "eyes": "= 0.1.6",
-    "render": "= 0.0.1",
+    "render": "0.0.x",
     "request": "= 1.9.5",
     "cradle": "= 0.5.5",
     "cradle-init": ">= 0.0.1",
