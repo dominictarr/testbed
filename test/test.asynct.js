@@ -62,7 +62,10 @@ exports ['test a repo'] = function (test){
   curry.init(function (){
     curry.update(function (){
       curry.test(function (err,report){
+ 
+        console.log("***************")
         console.log(report)
+        console.log("***************")
         test.done()
       })
     })
@@ -81,13 +84,20 @@ exports ['integrate a repo'] = function (test){
   events.forEach(function (event){
     curry.on(event,  
       function check(){
-        it(event).equal(events.shift())
+        if(~events.indexOf(event))
+          it(event).equal(events.shift())
       })
   })
 
   curry.integrate(function (err,report){
     it(changes >= 4).ok()
     it(events).property('length',0)
+    console.log(report)
+/*    it(report).has([{
+      tests:it.property('length',it.ok())
+    },{
+      tests:it.property('length',it.ok())
+    }])*/
     console.log(report)
     test.done()
   })

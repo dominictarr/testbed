@@ -218,7 +218,7 @@ var also = {
         function (err,tests){
           self.state.tests = []
           function next (test){
-            metatest.run({adapter: 'expresso', filename: test },
+            metatest.run({filename: test },
               function (err,report){
                 self.report = report
                 self.state.tests.push(report)
