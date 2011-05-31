@@ -1,10 +1,18 @@
+h3
+  - var sofar = []
+  - ;_id.split(',').forEach(function (e){
+    - sofar.push(e)
+    span /
+    a(href='/' + sofar.join('/'))=e
+  - })
 ul
   li
     a(href= ['http://github.com', username,project].join('/'))
-      = username+'/'+ project
+      = ['github.com', username, project].join('/')
   li
     a(href= 'http://search.npmjs.org/#/'+state.package.name)
-      = state.package.name + '@' + state.package.version
+      = 'npmjs.org/#/' + state.package.name 
+    span= '@' + state.package.version
   li
     a(href= ['http://github.com', username,project,'commit',state.commit].join('/'))
       = state.commit
@@ -12,6 +20,10 @@ ul
     = time
 - state.tests.forEach(function (test){
   h3(class= test.status)= test.status+': '+(test.name || test.filename)
+  - if ('success' != test.status)
+  - (test.failures || test.errors).forEach(function (err){
+  pre= '' + (err ? (err.stack || err) : err)
+  - })
   ol
     - test.tests.forEach(function (test){
       li
