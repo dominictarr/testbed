@@ -6,6 +6,7 @@ var express = require('express')
   , request = require('request')
   , w = require('winston')
   , eyes = require('eyes')
+  , render = require('render')
   , url = require('url')
   , database = 'testbed'
   , db
@@ -118,15 +119,14 @@ app.get('/:username?/:project?', function (req,res){
   var start = path.split('/').slice(1)
     , end = start.slice(0).concat('ZZZZZZZ')
     , opts = (path !== '/' ? {startkey:start,endkey:end} : {})
-  console.log("START:",start)
 
-  db.view('all/status',opts, function (err,data){
-  if(err) {return res.send(err)}
-  data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
-  if(data.rows.length)
-    res.render('index', data)
-  else
-    res.render('empty',config)
-    
+  db.view('all/ordered',opts, function (err,data){
+    if(err) {return res.send(err)}
+    data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
+    console.log(render(data, {multiline: true}))
+    if(data.rows.length)
+      res.render('index', data)
+    else
+      res.render('empty',config)
   })
 })

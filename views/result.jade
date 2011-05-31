@@ -8,6 +8,8 @@ ul
   li
     a(href= ['http://github.com', username,project,'commit',state.commit].join('/'))
       = state.commit
+  li
+    = time
 - state.tests.forEach(function (test){
   h3(class= test.status)= test.status+': '+(test.name || test.filename)
   ol

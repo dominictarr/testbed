@@ -15,11 +15,13 @@
   },
   "dependencies": {
     "meta-test": "= 0.0.4",
+    "it-is": "0.0.x",
     "express": "= 2.3.10",
     "eyes": "= 0.1.6",
+    "render": "= 0.0.1",
     "request": "= 1.9.5",
     "cradle": "= 0.5.5",
-    "cradle-init": "= 0.0.x",
+    "cradle-init": ">= 0.0.1",
     "jade": "= 0.10.0",
     "wildfile": "= 0.0.x"
   },
