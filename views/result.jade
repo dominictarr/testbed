@@ -16,5 +16,9 @@ ul
     - test.tests.forEach(function (test){
       li
         div= test.status+': '+test.name
+        - if ('success' != test.status)
+        - test.failures.forEach(function (err){
+        pre= '' + (err ? (err.stack || err) : err)
+        - })
     - })
 - })
