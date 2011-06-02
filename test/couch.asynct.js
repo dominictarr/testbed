@@ -73,7 +73,7 @@ exports ['test summary'] = function (test){
     console.log("all/summary:",data.rows)
     var seen = []
     it(data.rows).every(it.has({
-      key: it.property('length',2)//username,project
+      key: it.property('length',it.ok())//username,project
     , value: it.has({
         commit: it.matches(/[\w|\d]+/)
       , status: it.matches(/success|failure|error/)

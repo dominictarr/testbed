@@ -35,11 +35,11 @@ module.exports = function (opts,callback){
             }).reduce(function (x,y){
               return x > y ? x : y
             })
-
-        emit([doc.username,doc.project], {
+        var time = new Date(doc.time)
+        emit([doc.username,doc.project,time], {
           commit: doc.state.commit, 
           status:status, 
-          time: new Date(doc.time),
+          time: time,
           total: total,
           passes: passes
         });
