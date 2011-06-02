@@ -11,6 +11,7 @@ var express = require('express')
   , database = 'testbed'
   , db
   , config
+
   w.cli()
   w.info('TESTBED')
   w.info(new Date)
@@ -22,7 +23,7 @@ var express = require('express')
     config = require('./setup').test()
   }
 
-  db = require('./initialize')(config.database,function (err,db){
+  db = require('./initialize')({name: config.database},function (err,db){
     if(err){
       w.error("DATABASE SETUP ERROR")
       throw err
@@ -112,7 +113,7 @@ app.get('/:username/:project/:commit', function (req,res){
   })
 })
 
-app.get('/:username?/:project?', function (req,res){
+/*app.get('/:username/:project', function (req,res){
 
   var path = url.parse(req.url).pathname
 
@@ -130,4 +131,49 @@ app.get('/:username?/:project?', function (req,res){
     } else
       res.render('empty',config)
   })
+})*/
+
+function summary(opts,res){
+
+  db.view('all/summary',opts, function (err,data){
+
+    if(err) return res.send(err)
+    console.log(data)
+    res.render('user',data)
+  })
+
+}
+
+app.get('/:username/:project', function (req,res){
+
+  var key = [req.params.username,req.params.project]
+
+  console.log(key)
+  
+  var opts = {
+    startkey: key,
+    endkey: key,
+    reduce: false,
+//    group: false
+  }
+
+  summary(opts,res)
+
+})
+
+app.get('/:username', function (req,res){
+
+  var key = 
+
+  console.log(key)
+  
+  var opts = {
+    startkey: [req.params.username,'_______'],
+    endkey: [req.params.username,'ZZZZZZZZZ'],
+    group: true,
+    reduce: true
+  }
+
+  summary(opts,res)
+
 })

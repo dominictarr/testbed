@@ -1,0 +1,17 @@
+- rows.forEach(function (e){
+  lable= new Date(e.value.time)
+  h3
+    - var sofar = []
+    - ;[e.key[0],e.key[1],e.value.commit].forEach(function (e){
+      - sofar.push(e)
+      span /
+      a(href='/' + sofar.join('/'))=e
+    - })
+    h2(class= e.value.status)
+      = e.value.status
+      span   (
+        = e.value.passes
+        span /
+        = e.value.total
+        )
+- })
