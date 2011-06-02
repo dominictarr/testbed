@@ -117,6 +117,12 @@ function summary(opts,res){
 
   db.view('all/summary',opts, function (err,data){
 
+//    data.rows = data.rows.reverse()
+
+    data.rows.sort(function (x,y){
+      return (x.value.time <= y.value.time)
+    })
+
     if(err) return res.send(err)
     console.log(data)
     res.render('user',data)
@@ -126,13 +132,13 @@ function summary(opts,res){
 
 app.get('/:username/:project', function (req,res){
 
-  var key = [req.params.username,req.params.project]
+  var key = 
 
   console.log(key)
   
   var opts = {
-    startkey: key,
-    endkey: key,
+    endkey: [req.params.username,req.params.project,'ZZZZZZZ'],
+    startkey: [req.params.username,req.params.project,'_____'],
     reduce: false,
 //    group: false
   }
@@ -142,15 +148,11 @@ app.get('/:username/:project', function (req,res){
 })
 
 app.get('/:username', function (req,res){
-
-  var key = 
-
-  console.log(key)
   
   var opts = {
     startkey: [req.params.username,'_______'],
     endkey: [req.params.username,'ZZZZZZZZZ'],
-    group: true,
+    group_level: 2,
     reduce: true
   }
 
