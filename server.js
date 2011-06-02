@@ -113,26 +113,6 @@ app.get('/:username/:project/:commit', function (req,res){
   })
 })
 
-/*app.get('/:username/:project', function (req,res){
-
-  var path = url.parse(req.url).pathname
-
-  var start = path.split('/').slice(1)
-    , end = start.slice(0).concat('ZZZZZZZ')
-    , opts = (path !== '/' ? {startkey:start,endkey:end} : {})
-
-  db.view('all/ordered',opts, function (err,data){
-    if(err) {return res.send(err)}
-    data.__proto__ = Array.prototype //GOD DAMMIT! leave Array.prototype alone!
-    console.log(render(data, {multiline: true}))
-    if(data.rows.length) {
-      data.rows = data.rows.reverse()
-      res.render('index', data)
-    } else
-      res.render('empty',config)
-  })
-})*/
-
 function summary(opts,res){
 
   db.view('all/summary',opts, function (err,data){
@@ -171,6 +151,18 @@ app.get('/:username', function (req,res){
     startkey: [req.params.username,'_______'],
     endkey: [req.params.username,'ZZZZZZZZZ'],
     group: true,
+    reduce: true
+  }
+
+  summary(opts,res)
+
+})
+
+app.get('/', function (req,res){
+
+  
+  var opts = {
+    group_level: 2,
     reduce: true
   }
 

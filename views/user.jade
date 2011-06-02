@@ -1,5 +1,5 @@
 - rows.forEach(function (e){
-  lable= new Date(e.value.time)
+  span(class= 'date')= new Date(e.value.time)
   h3
     - var sofar = []
     - ;[e.key[0],e.key[1],e.value.commit].forEach(function (e){
