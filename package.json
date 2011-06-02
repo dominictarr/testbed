@@ -23,7 +23,8 @@
     "cradle": "= 0.5.5",
     "cradle-init": ">= 0.0.3",
     "jade": "= 0.10.0",
-    "wildfile": "= 0.0.x"
+    "wildfile": "= 0.0.x",
+    "relative-date": "= 1.0.x"
   },
   "devDependencies": {}
 }
