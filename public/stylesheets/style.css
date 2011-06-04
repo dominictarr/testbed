@@ -3,7 +3,13 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: hsl(120,50%,60%);
   background: hsl(270,20%,20%);
+  line-height: 140%;
+  font-size: 110%;
 }
+.even { background: hsl(270,20%,25%); }
+.test-links {width: 600px; }
+.status { width: 120px; }
+.date { width: 120px; }
 .success {
  color: hsl(120,70%,50%); 
 }

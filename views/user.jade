@@ -1,17 +1,26 @@
-- rows.forEach(function (e){
-  span(class= 'date')= new Date(e.value.time)
-  h3
-    - var sofar = []
-    - ;[e.key[0],e.key[1],e.value.commit].forEach(function (e){
-      - sofar.push(e)
-      span /
-      a(href='/' + sofar.join('/'))=e
-    - })
-    h2(class= e.value.status)
-      = e.value.status
-      span   (
-        = e.value.passes
-        span /
-        = e.value.total
-        )
-- })
+TABLE
+  tr(class= 'header')
+    td user
+    td project
+    td commit
+    td status
+    td when?
+  - rows.forEach(function (e,k){
+  - var i = 0
+    tr(class= 'test-commit ' + ((k % 2) ? 'odd' : 'even'))
+      //td(class= 'test-links')
+      - var sofar = []
+      - ;[e.key[0],e.key[1],e.value.commit].forEach(function (e){
+        - sofar.push(e)
+        td
+          a(href='/' + sofar.join('/'))=e
+      - })
+      td(class= e.value.status + ' status')
+        = e.value.status
+        span   (
+          = e.value.passes
+          span /
+          = e.value.total
+          )
+      td(class= 'date')= new Date(e.value.time)
+  - })

@@ -18,19 +18,21 @@ ul
       = state.commit
   li
     = time
-- state.tests.forEach(function (test){
-  h3(class= test.status)= test.status+': '+(test.name || test.filename)
-  - if ('success' != test.status)
-  - (test.failures || test.errors).forEach(function (err){
-  pre= '' + (err ? (err.stack || err) : err)
-  - })
+
   ol
-    - test.tests.forEach(function (test){
-      li
-        div(class= test.status)= test.status+': '+test.name
-        - if ('success' != test.status)
-        - test.failures.forEach(function (err){
-        pre= '' + (err ? (err.stack || err) : err)
-        - })
-    - })
-- })
+- state.tests.forEach(function (test){
+    li(class= test.status)= test.status+': '+(test.name || test.filename)
+    - if ('success' != test.status){
+    - (test.failures || test.errors).forEach(function (err){
+    pre= '' + (err ? (err.stack || err) : err)
+    - })}
+    ul
+      - test.tests.forEach(function (test){
+        li
+          div(class= test.status)= test.status+': '+test.name
+          - if ('success' != test.status)
+          - test.failures.forEach(function (err){
+          pre= '' + (err ? (err.stack || err) : err)
+          - })
+      - })
+  - })
