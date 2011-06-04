@@ -5,34 +5,9 @@ h3
     span /
     a(href='/' + sofar.join('/'))=e
   - })
-ul
-  li
-    a(href= ['http://github.com', username,project].join('/'))
-      = ['github.com', username, project].join('/')
-  li
-    a(href= 'http://search.npmjs.org/#/'+state.package.name)
-      = 'npmjs.org/#/' + state.package.name 
-    span= '@' + state.package.version
-  li
-    a(href= ['http://github.com', username,project,'commit',state.commit].join('/'))
-      = state.commit
-  li
-    = time
 
-  ol
-- state.tests.forEach(function (test){
-    li(class= test.status)= test.status+': '+(test.name || test.filename)
-    - if ('success' != test.status){
-    - (test.failures || test.errors).forEach(function (err){
-    pre= '' + (err ? (err.stack || err) : err)
-    - })}
-    ul
-      - test.tests.forEach(function (test){
-        li
-          div(class= test.status)= test.status+': '+test.name
-          - if ('success' != test.status)
-          - test.failures.forEach(function (err){
-          pre= '' + (err ? (err.stack || err) : err)
-          - })
-      - })
-  - })
+!= partial('./github', state.post)
+
+div(class='content')
+  h3!= partial('./status', state)
+  div!= partial('./test', state.tests || state.results)

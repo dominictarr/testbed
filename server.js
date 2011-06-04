@@ -5,12 +5,14 @@ var express = require('express')
   , testbed = new (require('./testbed'))(process.cwd() + '/workspace')
   , request = require('request')
   , w = require('winston')
+  , fs = require('fs')
   , eyes = require('eyes')
   , render = require('render')
   , url = require('url')
   , database = 'testbed'
   , db
   , config
+  , package = JSON.parse(fs.readFileSync(__dirname + '/package.json'))
 
   w.cli()
   w.info('TESTBED')
@@ -34,6 +36,7 @@ var express = require('express')
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  app.set('view options', {package: package});
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(__dirname + '/public'));

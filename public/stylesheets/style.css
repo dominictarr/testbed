@@ -1,15 +1,94 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: hsl(120,50%,60%);
-  background: hsl(270,20%,20%);
+  font: 16px  “Tahoma”, Geneva, sans-serif;
+  color: hsl(120,50%,90%);
   line-height: 140%;
-  font-size: 110%;
+//   background: hsl(270,25%,18%) no-repeat top left -webkit-gradient(linear, 100 100, 600 600, from(hsl(270,25%,22%)), to(hsl(270,25%,14%)));
+  background: hsl(20,35%,18%); 
 }
-.even { background: hsl(270,20%,25%); }
+h1,h2,h3,h4{
+  color: hsl(53, 101%, 49%);  
+  padding-top:2px;
+  margin-top:2px;
+}
+
+h1 {
+  text-shadow: 1px 1px 2px hsl(33, 71%, 59%);
+}
+
+h1 a {
+  text-shadow: 1px 1px 1px hsl(187, 80%, 45%);
+}
+
+
+.tests {
+  margin-left: 15px;
+}
+
+.github {
+//   background: hsl(270,25%,18%) no-repeat top left -webkit-gradient(linear, center top, center bottom, from(hsl(270,25%,12%)), to(hsl(270,25%,14%)));
+}
+.right {
+  float: right;
+}
+
+hr {
+  background-color: hsl(20,25%,30%);
+  border-color: hsl(20,25%,30%);
+  padding: 0px;
+  margin: 3px;
+}
+
+.github .header {
+  margin: 2px;
+  font-size: 20px;
+  font-style: bold;
+}
+.commit {
+//  border: solid 1px hsl(120,20%,30%);
+}
+
+table {
+  border-spacing: 0px; 
+}
+td {
+  padding 5px;
+}
+.content {
+  -moz-box-shadow: 5px 5px 5px hsl(270,10%,15%);
+  -webkit-box-shadow: 5px 5px 5px hsl(270,10%,15%);
+  box-shadow: 5px 5px 5px hsl(270,10%,15%);
+  border: solid 1px hsl(70,20%,20%);
+  padding: 10px;
+  width: 800px; 
+  margin-bottom: 10px;
+  background: hsl(270,15%,18%) no-repeat top left -webkit-gradient(linear, 100 100, 600 600, from(hsl(270,15%,22%)), to(hsl(270,25%,14%)));
+  border-radius: 10px;
+}
+
+a { text-decoration: none; }
+
+a:hover { text-decoration: underline; }
+a:active { font-style: italic; }
+
+
+td { 
+//  padding-left: 5px; 
+//  padding-right: 5px; 
+  margin:0px; 
+  padding: 5px;
+//border-bottom:solid 1px red; 
+  border-bottom: 1px solid hsl(20,25%,30%);
+}
+
+.stacktrace {
+  overflow: auto;
+}
+
+.even {
+  background: hsl(273,21%,21%); 
+}
 .test-links {width: 600px; }
-.status { width: 120px; }
-.date { width: 120px; }
 .success {
  color: hsl(120,70%,50%); 
 }
@@ -26,7 +105,6 @@ li {
   margin: 5px;
 }
 
-
 a {
-  color: #00B7FF;
+  color: hsl(197, 100%, 50%);
 }

@@ -1,14 +1,14 @@
-TABLE
+TABLE(class= 'content')
   tr(class= 'header')
     td user
     td project
     td commit
     td status
-    td when?
+    td %
+    td when?  
   - rows.forEach(function (e,k){
   - var i = 0
     tr(class= 'test-commit ' + ((k % 2) ? 'odd' : 'even'))
-      //td(class= 'test-links')
       - var sofar = []
       - ;[e.key[0],e.key[1],e.value.commit].forEach(function (e){
         - sofar.push(e)
@@ -17,10 +17,10 @@ TABLE
       - })
       td(class= e.value.status + ' status')
         = e.value.status
-        span   (
-          = e.value.passes
-          span /
-          = e.value.total
-          )
+      td (
+        = e.value.passes
+        span /
+        = e.value.total
+        )
       td(class= 'date')= new Date(e.value.time)
   - })

@@ -1,0 +1,8 @@
+div(class= 'commit ' + (indexInCollection % 2 ? 'odd' : 'even'))
+  div= commit.author.name + ' : '
+    a(href= commit.url)= commit.id
+  div
+    span= commit.message
+    |  (
+    span(class = 'date')= commit.timestamp
+    |  )

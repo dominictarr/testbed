@@ -1,0 +1,10 @@
+div(class = 'tests')
+  span(class= test.status + ' status right')= test.status
+  =' '+(test.name || test.filename)
+  - if ('success' != test.status)
+    div(class= 'stacktrace')
+      != partial ('error', test.failures || test.errors)
+  hr
+  div
+    - if (test.tests)
+      != partial('test', test.tests)
