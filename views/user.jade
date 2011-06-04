@@ -1,5 +1,5 @@
-TABLE(class= 'content')
-  tr(class= 'header')
+TABLE.content
+  tr.header
     td user
     td project
     td commit
@@ -17,10 +17,10 @@ TABLE(class= 'content')
       - })
       td(class= e.value.status + ' status')
         = e.value.status
-      td (
+      td.secondary (
         = e.value.passes
         span /
         = e.value.total
         )
-      td(class= 'date')= new Date(e.value.time)
+      td.date= new Date(e.value.time)
   - })

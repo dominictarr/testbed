@@ -20,7 +20,6 @@ h1 a {
   text-shadow: 1px 1px 1px hsl(187, 80%, 45%);
 }
 
-
 .tests {
   margin-left: 15px;
 }
@@ -37,6 +36,10 @@ hr {
   border-color: hsl(20,25%,30%);
   padding: 0px;
   margin: 3px;
+}
+.secondary {
+  color: hsl(270,5%,55%);
+  text-shadow: none;
 }
 
 .github .header {

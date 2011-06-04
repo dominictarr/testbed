@@ -7,7 +7,7 @@ html
     script(src='/javascripts/jquery.js', language='javascript')
   h1 
     a(href='/') Testbed 
-      span= '@' + package.version
+    span(class='secondary')= 'v' + package.version
     span  
       |  Continuous Integration for nodejs
   body!= body
