@@ -258,7 +258,6 @@ var also = {
           function next (test){
             metatest.run({filename: test },
               function (err,report){
-              
                 self.change('test',err,report)
                 self.report.tests.push(report)
                 if(err)

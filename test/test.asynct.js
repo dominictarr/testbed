@@ -92,6 +92,12 @@ exports ['integrate a repo'] = function (test){
     it(changes >= 4).ok()
     it(events).property('length',0)
     console.log(report)
+    it(curry).has({
+      type: 'repo',
+      report: {status: it.typeof('string'), tests: []},
+      installation: [],
+      package: {name: it.typeof('string'), version: it.typeof('string')}
+    })
 /*    it(report).has([{
       tests:it.property('length',it.ok())
     },{

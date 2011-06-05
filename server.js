@@ -52,14 +52,11 @@ function save (repo){
     repo.saving = true
 
     db.get('' + repo._id, function (err,doc){
-      db.save({
-        _id: '' + repo._id,
-        _rev: doc && doc._rev,
-        time: new Date,
-        username: repo.username,
-        project: repo.project,
-        state: repo.state,
-        },
+      var obj = {}
+      for(var key in repo)
+        obj[key] = repo[key]
+      delete obj._events
+      db.save(obj,
         function (err,data){
           repo._rev = data._rev
           repo.saving = null
