@@ -116,7 +116,6 @@ app.post('/', function (req,res){
 app.get('/:username/:project/:commit', function (req,res){
   db.get([req.params.username, req.params.project, req.params.commit].join(','),
   function (err,data){
-
     res.render('result',data)
   })
 })
@@ -125,15 +124,10 @@ function summary(opts,res){
 
   db.view('all/summary',opts, function (err,data){
 
-//    data.rows = data.rows.reverse()
-
     data.rows.sort(function (x,y){
-      console.log(new Date(x.value.time), new Date(y.value.time))
-      return (new Date(x.value.time) < new Date(y.value.time))
+      return x.value.time < y.value.time ? 1 : -1
     })
-
     if(err) return res.send(err)
-    console.log(data.rows.map(function (e){return new Date(e.value.time)}))
     res.render('user',data)
   })
 
