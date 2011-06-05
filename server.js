@@ -36,7 +36,7 @@ var express = require('express')
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.set('view options', {package: package});
+  app.set('view options', {package: package, status: 'success'});
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(__dirname + '/public'));
@@ -112,6 +112,9 @@ app.post('/', function (req,res){
 app.get('/:username/:project/:commit', function (req,res){
   db.get([req.params.username, req.params.project, req.params.commit].join(','),
   function (err,data){
+    data.status = data.state.tests.reduce(function (x,y){
+      return x.status > y.status ? x : y
+    }).status
     res.render('result',data)
   })
 })
@@ -164,7 +167,6 @@ app.get('/:username', function (req,res){
 })
 
 app.get('/', function (req,res){
-
   
   var opts = {
     group_level: 2,
