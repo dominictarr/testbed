@@ -33,7 +33,7 @@ module.exports = function (opts,callback){
               if(e.status) passes ++;
               return e.status
             }).reduce(function (x,y){
-              return x > y ? x : y
+              return x < y ? x : y
             })
         var time = new Date(doc.time)
         emit([doc.username,doc.project,time], {
