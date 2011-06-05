@@ -106,7 +106,7 @@ app.post('/', function (req,res){
     payload.repository.name, 
     config.basedir) // load that from config.
 
-  repo.state.post = payload
+  repo.post = payload
 
   repo.on('change',function (event){
     console.log([repo.username,repo.project].join('/'),[].shift.call(arguments))
