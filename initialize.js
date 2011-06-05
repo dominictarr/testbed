@@ -14,30 +14,28 @@ module.exports = function (opts,callback){
   console.log("INIT VIEWS", opts)
   return init(opts.name,opts)
     .view('all/status', function(doc) {
-      var status = doc.state.tests
+      var status = doc.report.tests
         .map(function (e){
           return {name: e.filename || e.name, status: e.status}
         })
-      emit([doc.username,doc.project,doc.state.commit], status);
+      emit([doc.username,doc.project,doc.commit], status);
     })
     .view('all/summary', function(doc) {
-      if(!doc.state || doc.type == 'commit')
+      if(doc.type != 'repo' || !doc.report.tests)
         return
       try{
         var total = 0, passes = 0
-          , status = (doc.state.tests || doc.state.results)
-            .map(function (e){
+          , status = doc.report.status
+            doc.report.tests.map(function (e){
               total ++;
-              if(!e)
-                throw new Error('e is undefined')
-              if(e.status) passes ++;
+              if(e.status == 'success') passes ++;
               return e.status
             }).reduce(function (x,y){
               return x < y ? x : y
             })
         var time = new Date(doc.time)
         emit([doc.username,doc.project,time], {
-          commit: doc.state.commit, 
+          commit: doc.commit, 
           status:status, 
           time: time,
           total: total,

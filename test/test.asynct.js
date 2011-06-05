@@ -11,7 +11,6 @@ exports.__setup = function (test){
 }
 
 
-
 exports ['can clone or pull a project'] = function (test){
 
   var curry = testbed.Repo('substack','curry')
@@ -102,3 +101,33 @@ exports ['integrate a repo'] = function (test){
     test.done()
   })
 }
+/*
+//TODO: an module with an install error. might hade to use a install script to do this.
+
+exports ['handle errors property'] = function (test){
+
+ var broke = testbed.Repo('dominictarr','broken-test-example')
+    , events = ['clone', 'init', 'install-error']
+    , changes = 0
+
+  broke.on('change',function (event){
+    changes ++
+  })
+  events.forEach(function (event){
+    broke.on(event,  
+      function check(){
+        if(~events.indexOf(event))
+          it(event).equal(events.shift())
+      })
+  })
+
+  broke.integrate(function (err,report){
+    it(changes >= 3).ok()
+    it(events).property('length',0)
+    console.log(report)
+
+    it(err).ok()
+
+    test.done()
+  })
+}*/

@@ -6,8 +6,8 @@ h3
     a(href='/' + sofar.join('/'))=e
   - })
 
-!= partial('./github', state.post)
+!= partial('./github', post)
 
 div(class='content')
-  h3!= partial('./status', state)
-  div!= partial('./test', state.tests || state.results)
+  h3!= partial('./status', report)
+  div!= partial('./test', report.tests)

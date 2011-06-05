@@ -37,6 +37,13 @@ function Repo(username,project,basedir){
   this.project = project
   this.basedir = basedir
   this.state = {init: false, update: false, tested: false}
+  this.type = 'repo'
+  this.installation = []
+  this.report = {
+    status: 'notinstalled',
+    failures: [],
+    tests: []
+  }
 }
 
 Repo.prototype = new EventEmitter()
@@ -108,7 +115,7 @@ var also = {
         {cwd: this.dir()}, 
         function (err,data){
           self.setState(false,false,false)
-          if(err){
+          if(err){//TODO save git error.
             self.change('disconnected',err,data)
             callback.apply(self,arguments)
             return
@@ -131,7 +138,7 @@ var also = {
         {cwd: self.basedir}, 
         function (err,data){
           self.setState(false,false,false)
-          if(err){
+          if(err){//TODO save git error
             self.change('disconnected',err,data)
             callback.apply(self,arguments)
             return
@@ -151,16 +158,33 @@ var also = {
       })
     },
 
-    init: function ( callback){
-    var self = this
+    init: function (callback) {
+    var self = this, package, dev
     fs.readFile(self.path('basedir', 'username', 'project','package.json'),
       'utf-8', 
-      function (err,json){
-        //if(err) throw err//FIXME
-        var package = eval('(' + json + ')')
-          , dev = package.devDependencies || {}
+      function (err, json) {
+        //TODO: if there is no package.json call this as invalid.
+        if(err) {
+          self.report.status = 'install-error'
+          self.report.failures.push(err)
+          //there was an error reading package json.
+          self.change('install-error',err)
+          return callback(err)
+        }
 
-        self.state.package = package
+        try {
+          package = eval('(' + json + ')')
+          dev = package.devDependencies || {}
+        } catch (err) {
+          self.report.status = 'install-error'
+          err.message = 'trying to parse package.json:' + err.message
+          self.report.failures.push(err)
+          //there was an error reading package json.
+          self.change('install-error',err)
+          return callback(err)
+        }
+
+        self.package = package
 
           var devDependencies = Object.keys(dev).map(function (e){
             return e +'@' + JSON.stringify(dev[e])
@@ -172,7 +196,14 @@ var also = {
           exec('npm install ' + devDependencies.join(' '),{cwd: self.dir()}, next)
         else next()
         function next(err,data){
-        if(err) return callback(err,data)
+        if(err) {
+          self.report.status = 'install-error'
+          self.report.failures.push(err)
+          //there was an error reading package json.
+          self.change('install-error',err)
+          return callback(err,data)
+        }
+
         exec([
           'mkdir', 'node_modules'].join(' '), 
           {cwd: join(self.basedir,self.username)}, 
@@ -183,7 +214,7 @@ var also = {
             self.dir(),
             join(self.basedir, self.username, 'node_modules', package.name)
             ].join(' '),
-            function (err){
+            function (err){//err will happen if it's already there, so ignore it.
               self.setState(true,false,false)
               self.change('init',err)
               callback(err)
@@ -199,12 +230,19 @@ var also = {
       exec('npm update', 
         {cwd: join(this.basedir,this.username,this.project)}, 
         function (err,data){
+          //TODO: save npm install data.
           self.setState(null,true,false)
-          self.change('update',err,data)
+          if(err) {
+            self.report.status = 'install-error'
+            self.report.failures.push(err)
+            self.installation.push(data)
+            self.change('install-error',err,data)
+          } else {
+            self.change('update',data)
+          }
           callback(err,data)
         })
     },
-    
     test: function (){
       var callback = [].pop.call(arguments)
         , adapter = [].shift.call(arguments)
@@ -220,16 +258,19 @@ var also = {
           function next (test){
             metatest.run({filename: test },
               function (err,report){
-                self.report = report
-                self.state.tests.push(report)
+                self.state
                 self.change('test',err,report)
-                reports.push(report)
+                self.report.tests.push(report)
                 if(err)
                   return callback(err)
                 //callback(err,report)
                 if(tests.length)
                   next(tests.shift())
                 else{
+                  self.report.status = 
+                    self.report.tests.reduce(function(x,y){
+                      return x.status < y.status ? x : y
+                    }).status
                   self.state.tested = true
                   self.change('tested',reports)
                   callback(err,reports)
@@ -257,7 +298,6 @@ var also = {
           })
         })
       })
-    
     }
 }
 

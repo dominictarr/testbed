@@ -2,19 +2,17 @@ var db
   , it = require('it-is')
   , opts = {
       name: 'test-testbed',
-      clobber: true
+      clobber: true,
+      host: 'localhost',
+      raw: true
     }
   , fs = require('fs')
-  , data = (JSON.parse(fs.readFileSync(__dirname + '/data/testbed-all.json'))
-    .rows.filter(function (e){
-        return e.id[0] != '_'
-      }).map(function (e){
-        return e.doc
-      }))
+  , data = JSON.parse(fs.readFileSync(__dirname + '/data/testbed-migrated.json'))
 
 exports.__setup = function (test){
 
   console.error("init database")
+  console.log(opts)
   db = require('../initialize')(opts, function (err,db){
     if(err){
       console.error("DATABASE SETUP ERROR")
@@ -76,7 +74,7 @@ exports ['test summary'] = function (test){
       key: it.property('length',it.ok())//username,project
     , value: it.has({
         commit: it.matches(/[\w|\d]+/)
-      , status: it.matches(/success|failure|error/)
+      , status: it.matches(/success|failure|error|install-error|notinstalled|invalid/)
       , passes: it.typeof('number')
       , total: it.typeof('number')
       })

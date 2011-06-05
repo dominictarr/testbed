@@ -12,7 +12,7 @@ var w = require('winston')
 
 exports.deploy = function (ready){
 
-  try{
+  try {
     config = fs.readFileSync(config_file)
   } catch (err){
     w.error('could not find ~/.testbedrc')
