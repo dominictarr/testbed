@@ -53,13 +53,22 @@ function save (repo){
 
     db.get('' + repo._id, function (err,doc){
 
-      var obj = {}
+      var obj = {_rev: doc && doc._rev,time: new }
       for (var key in repo)
         obj[key] = repo[key]
-      obj._rev = doc && doc._rev
-      obj._id = doc._id
-      obj.time = new Date()
-      db.save(obj,
+      console.log(obj)
+      db.save({
+        _id: '' + repo._id,
+        _rev: doc && doc._rev,
+        time: new Date,
+        username: repo.username,
+        project: repo.project,
+        state: repo.state,
+        report: repo.report,
+        package: repo.package,
+        installation: repo.installation,
+        type: repo.type,
+        },
         function (err,data){
           repo._rev = data._rev
           repo.saving = null
