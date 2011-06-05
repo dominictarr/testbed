@@ -2,7 +2,7 @@
   "author": "Dominic Tarr <dominic.tarr@gmail.com>",
   "name": "testbed",
   "description": "continuious integration for node",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "url": ""
   },
