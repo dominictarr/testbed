@@ -1,7 +1,10 @@
 var request = require('request')
 var cradle = require('cradle')
 
-//cradle.new
+/*
+uh, so this will probably become a better migration tool soon enough, but not at 2 am.
+
+*/
 
 request({uri: 'http://testbedjs.org:5985/testbed/_all_docs?include_docs=true'}
 , function (err,res,data){
@@ -37,5 +40,23 @@ request({uri: 'http://testbedjs.org:5985/testbed/_all_docs?include_docs=true'}
     return value
   })
 
+if (process.argv.length > 2) {
+  var db = new cradle.Connection({
+    host: 'testbedjs.org', 
+    port: 5985,
+    auth: { username: 'testbed', password: '********'}
+    }).database('testbed1')
+
+  db.create(function (err){  
+    console.log('created database')
+    db.save(migrated,function (err){
+      if(err) throw err
+    })
+  })
+
+} else {
   console.log(JSON.stringify(migrated))
+
+}
+
 })
