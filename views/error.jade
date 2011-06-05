@@ -1,1 +1,1 @@
-pre= '' + (error ? (error.stack || error) : error)
+pre= '' + (error ? (error.stack || JSON.stringify(error)) : error)
