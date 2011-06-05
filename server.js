@@ -57,6 +57,7 @@ function save (repo){
       for (var key in repo)
         obj[key] = repo[key]
       obj._rev = doc && doc._rev
+      obj._id = doc._id
       obj.time = new Date()
       db.save(obj,
         function (err,data){
