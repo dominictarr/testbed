@@ -53,7 +53,7 @@ function save (repo){
 
     db.get('' + repo._id, function (err,doc){
 
-      var obj = {_rev: doc && doc._rev,time: new }
+      var obj = {}
       for (var key in repo)
         obj[key] = repo[key]
       console.log(obj)
