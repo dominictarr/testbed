@@ -60,14 +60,16 @@ function save (repo){
       db.save({
         _id: '' + repo._id,
         _rev: doc && doc._rev,
-        time: new Date,
-        username: repo.username,
-        project: repo.project,
-        state: repo.state,
-        report: repo.report,
-        package: repo.package,
+        commit: repo.commit,
         installation: repo.installation,
+        package: repo.package,
+        post: repo.post,
+        project: repo.project,
+        report: repo.report,
+        state: repo.state,
+        time: new Date,
         type: repo.type,
+        username: repo.username,
         },
         function (err,data){
           repo._rev = data._rev
