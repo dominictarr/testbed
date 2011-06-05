@@ -94,7 +94,7 @@ var also = {
           if(err) throw err//FIXME
           var m = /commit (.*)/(data.split('\n').shift())
           if(m){
-            self.state.commit = m[1]
+            self.commit = m[1]
             self._id = [self.username,self.project,m[1]]
             self.change('id',self._id)
           }
@@ -254,11 +254,11 @@ var also = {
           'project',
           'test','*.js'),
         function (err,tests){
-          self.state.tests = []
+          self.report.tests = []
           function next (test){
             metatest.run({filename: test },
               function (err,report){
-                self.state
+              
                 self.change('test',err,report)
                 self.report.tests.push(report)
                 if(err)
