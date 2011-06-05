@@ -15,17 +15,17 @@ exports.deploy = function (ready){
   try{
     config = fs.readFileSync(config_file)
   } catch (err){
-      w.error('could not find ~/.testbedrc')
-      w.error('creating default ~/.testbedrc = ')
+    w.error('could not find ~/.testbedrc')
+    w.error('creating default ~/.testbedrc = ')
 
-      eyes.inspect(defaults)
+    eyes.inspect(defaults)
 
-      w.info ("PLEASE REVIEW")
+    w.info ("PLEASE REVIEW")
 
-      fs.writeFileSync(config_file, JSON.stringify(defaults))
+    fs.writeFileSync(config_file, JSON.stringify(defaults))
     process.exit(1)
   }
-  try{
+  try {
     config = eval ('(' + config + ')' )
   } catch (err){
     w.error('ERROR LOADING CONFIG')

@@ -63,7 +63,7 @@ td {
   box-shadow: 5px 5px 5px hsl(270,10%,15%);
   border: solid 1px hsl(70,20%,20%);
   padding: 10px;
-  width: 800px; 
+  width: 900px; 
   margin-bottom: 10px;
   background: hsl(270,15%,18%) no-repeat top left -webkit-gradient(linear, 100 100, 600 600, from(hsl(270,15%,22%)), to(hsl(270,25%,14%)));
   border-radius: 10px;

@@ -25,7 +25,7 @@ var express = require('express')
     config = require('./setup').test()
   }
 
-  db = require('./initialize')({name: config.database},function (err,db){
+  db = require('./initialize')(config.database,function (err,db){
     if(err){
       w.error("DATABASE SETUP ERROR")
       throw err
@@ -36,7 +36,11 @@ var express = require('express')
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
-  app.set('view options', {package: package, status: 'success'});
+  app.set('view options', {
+    package: package, 
+    status: 'success', //sets the tab icon
+    basedir: config.basedir
+    });
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.static(__dirname + '/public'));
