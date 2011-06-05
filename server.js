@@ -52,8 +52,8 @@ function save (repo){
     repo.saving = true
 
     db.get('' + repo._id, function (err,doc){
-      var obj = {}
-      for(var key in repo)
+      var obj = {_id: doc._id}
+      for (var key in repo)
         obj[key] = repo[key]
       delete obj._events
       db.save(obj,
