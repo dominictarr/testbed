@@ -1,6 +1,6 @@
 div(class = 'tests')
   span(class= test.status + ' status right')= test.status
-  =' '+ test.name.replace(basedir ,'')
+  =' '+ (test.name || test.filename || '').replace(basedir ,'')
   - if ('success' != test.status)
     div(class= 'stacktrace')
       != partial ('error', test.failures || test.errors)

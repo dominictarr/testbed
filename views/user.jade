@@ -6,7 +6,7 @@ TABLE.content
     td status
     td %
     td when?  
-  - rows.forEach(function (e,k){
+  - self.rows.forEach(function (e,k){
   - var i = 0
     tr(class= 'test-commit ' + ((k % 2) ? 'odd' : 'even'))
       - var sofar = []

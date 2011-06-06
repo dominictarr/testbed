@@ -1,4 +1,4 @@
-h1= 'Testbed/' + rows[0].key[0]
-  - rows.forEach(function (e){
+h1= 'Testbed/' + self.rows[0].key[0]
+  - self.rows.forEach(function (e){
     h3= e.key.slice(1).join('/') + ' - ' + e.value
   - })

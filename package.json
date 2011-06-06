@@ -14,7 +14,7 @@
     "node": ">= 0.4.7"
   },
   "dependencies": {
-    "meta-test": ">= 0.0.7",
+    "meta-test": ">= 0.0.9",
     "it-is": "0.0.x",
     "express": "= 2.3.10",
     "eyes": "= 0.1.6",

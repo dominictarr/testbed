@@ -13,7 +13,7 @@ exports.__setup = function (test){
 
 exports ['integrate a repo that uses vows'] = function (test){
 
-  var webservice = testbed.Repo('Marak','webservice.js')
+  var webservice = testbed.Repo('dominictarr','webservice.js')
     , events = ['clone', 'init', 'update', 'tested']
     , changes = 0
 

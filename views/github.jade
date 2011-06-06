@@ -1,7 +1,7 @@
 div(class= 'github content')
   div(class= 'header')
-    a(href= repository.url)= repository.url
-    span(class= 'language right')= '('+ repository.language +')'
-    div(class= 'description')= repository.description
+    a(href= self.repository.url)= self.repository.url
+    span(class= 'language right')= '('+ self.repository.language +')'
+    div(class= 'description')= self.repository.description
   hr
-  div!= partial('./commit', commits)
+  div!= partial('./commit', self.commits || [])

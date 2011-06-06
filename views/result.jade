@@ -1,13 +1,13 @@
 h3
   - var sofar = []
-  - ;_id.split(',').forEach(function (e){
+  - ;self._id.split(',').forEach(function (e){
     - sofar.push(e)
     span /
     a(href='/' + sofar.join('/'))=e
   - })
 
-!= partial('./github', post)
+!= partial('./github', {self:self.post})
 
 div(class='content')
-  h3!= partial('./status', report)
-  div!= partial('./test', report.tests)
+  h3!= partial('./status', {self:self.report})
+  div!= partial('./test', self.report.tests || [])

@@ -1,18 +1,14 @@
 #!/usr/bin/env node
 
-var express = require('express') 
-  , app = express.createServer()
-  , testbed = new (require('./testbed'))(process.cwd() + '/workspace')
+var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
+  , appSetup = require('./app-setup')
   , request = require('request')
   , w = require('winston')
-  , fs = require('fs')
   , eyes = require('eyes')
   , render = require('render')
   , url = require('url')
-  , database = 'testbed'
   , db
   , config
-  , package = JSON.parse(fs.readFileSync(__dirname + '/package.json'))
 
   w.cli()
   w.info('TESTBED')
@@ -20,34 +16,26 @@ var express = require('express')
 
   if(!module.parent){
     config = require('./setup').deploy()
-    app.listen(config.port);
   } else {
     config = require('./setup').test()
   }
+
+  var app = appSetup(config)
+
+  if(!module.parent)
+    app.listen(config.port);
+
 
   db = require('./initialize')(config.database,function (err,db){
     if(err){
       w.error("DATABASE SETUP ERROR")
       throw err
     }
-    w.info("DATABASE '" + database + "' IS READY")
+    w.info("DATABASE '" + config.database + "' IS READY")
   })
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.set('view options', {
-    package: package, 
-    status: 'success', //sets the tab icon
-    basedir: config.basedir
-    });
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.static(__dirname + '/public'));
-  app.use(app.router);
-});
 
-function save (repo){
+function save (repo){ //pull this out also.
   if(repo._id && !repo.saving){
     repo.saving = true
 
@@ -87,12 +75,15 @@ function save (repo){
 
 app.post('/', function (req,res){
 
+  //pull all of this out into a repo controller.
+
   if(!req.body)
     return res.send ({error: "Expected payload: property"})
   try{
   var payload = JSON.parse(req.body.payload)
   } catch (err){
     w.error('could not parse POST JSON')
+    w.statusCode = 400
     return res.send ({
       error: "was not valid JSON", 
       was: req.body.payload, 
@@ -109,6 +100,7 @@ app.post('/', function (req,res){
   repo.post = payload
 
   repo.on('change',function (event){
+    //log
     console.log([repo.username,repo.project].join('/'),[].shift.call(arguments))
     while(arguments.length)
       console.log([].shift.call(arguments))
@@ -117,6 +109,7 @@ app.post('/', function (req,res){
   })
 
   repo.integrate(function (err,data){
+    //log
     if(err){
       return res.send({error: err, reason:  "could not connect to github or npm", data: data})
     }
@@ -124,10 +117,23 @@ app.post('/', function (req,res){
   })
 })
 
+/*
+controller gets req and a callback, through which it passes it's data to renderer
+
+this would at least make it possible to decouple the controller
+
+how to handle errors?
+
+first arg is error.
+views for errors are defined once for the handler
+*/
+
+//app.get('/path', handleRoute(controller, renderer))
+
 app.get('/:username/:project/:commit', function (req,res){
   db.get([req.params.username, req.params.project, req.params.commit].join(','),
   function (err,data){
-    res.render('result',data)
+    res.render('result',{self:data})
   })
 })
 
@@ -142,10 +148,15 @@ function summary(opts,res){
     data.rows.sort(function (x,y){
       return x.value.time < y.value.time ? 1 : -1
     })
-    res.render('user',data)
+    res.render('user',{self:data})
   })
 
 }
+
+//replace this with a function that calls the decoupled controller with just
+//params, query, 
+//and that calls back
+//with an the object ready for the view.
 
 app.get('/:username/:project', function (req,res){
 

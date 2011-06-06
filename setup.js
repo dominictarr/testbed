@@ -3,6 +3,7 @@ var w = require('winston')
   , eyes = require('eyes')
   , exec = require('child_process').exec
   , fs = require('fs')
+  , config 
   , defaults = {
       host: 'http://localhost',
       port: 3000,
