@@ -1,29 +1,14 @@
-var app = require('../app-setup')(require('../setup').deploy())
-  , port = Math.round(10000 + Math.random() * 40000)
+var views = require('./lib/view-tester')
+  , request = require('request')
   , http = require('http')
   , render = require('render')
-  , client
-  , res
+  , it = require('it-is')
 
-//an UGLY way to get the reponse object
-
-exports.__setup = function (test){
-
-  app.get('/',function (req,_res){
-    res = _res
-
-    test.done()
-  })
-
-  app.listen(port, function (){
-    client = http.get({port: port})
-  })
-
-}
+exports.__setup = views.setup
+exports.__teardown = views.teardown
 
 
 /*
-
 partials are kind dumb.
 
 I don't like it how they are magically given the name of the partial,
@@ -37,31 +22,6 @@ you should explicitly call partials or allPartials.
 implicit is not as good as explicit.
 
 */
-
-function partial(view,object, callback){
-  res.partial(view,object,function (err,data){
-    if(err)
-      throw err
-    callback()
-  })
-}
-
-function view(view,object, callback){
-  var clean = render.ct(object)//have to stringify first to avoid express monkeys.
-
-  res.render(view,{self: object},function (err,data){
-    if(err){
-      console.log('***********************')
-      console.log('ERROR RENDERING VIEW FOR OBJECT:')
-      console.log(clean)
-      console.log(err.stack)
-      console.log('***********************')
-      throw err
-    }
-    callback()
-  })
-}
-
 
 exports ['error view'] = function (test){
   var examples = [
@@ -78,7 +38,7 @@ exports ['error view'] = function (test){
     })(),
     {error:'couch error', message: 'have no stack trace'}
   ]
-  partial('error',examples,test.done)
+  views.partial('error',examples,test.done)
 }
 
 exports ['summary view'] = function (test){
@@ -96,7 +56,7 @@ exports ['summary view'] = function (test){
       }
     ] 
   }
-  view('user',example,test.done)
+  views.view('user',example,test.done)
 
 }
 
@@ -111,14 +71,7 @@ exports ['result view'] = function (test) {
     if(!example)
       return test.done()
 
-    view('result', example, next)
+    views.view('result', example, next)
   }
   next() 
-}
-
-exports.__teardown = function (test){
-  console.log('TEARDOWN')
-  client.abort()
-  app.close()
-
 }

@@ -196,5 +196,4 @@ app.get('/', function (req,res){
   }
 
   summary(opts,res)
-
 })
