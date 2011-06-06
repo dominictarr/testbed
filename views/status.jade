@@ -2,7 +2,7 @@
 - var status = tests.reduce(function (x,y) {
 - x.tests.forEach(function (e){s.push(e.status)})
 - return x.status < y.status ? x : y 
-- }).status
+- },{status:'couldnotinstall'}).status
 //
   span(class= status)= status
   span(class= 'right')
