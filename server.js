@@ -136,6 +136,7 @@ function summary(opts,res){
   db.view('all/summary',opts, function (err,data){
     if(err) {
       console.error(err)
+      res.statusCode = 500
       return res.send(err)
     }
     data.rows.sort(function (x,y){
