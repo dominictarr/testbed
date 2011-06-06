@@ -3,3 +3,4 @@ node_modules/*
 test/tmp/*
 workspace
 workspace/*
+public/javascripts/google-analytics.js

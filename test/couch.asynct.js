@@ -3,11 +3,13 @@ var db
   , opts = {
       name: 'test-testbed',
       clobber: true,
-      host: 'localhost',
+      host: 'testbedjs.org',
       raw: true
     }
   , fs = require('fs')
   , data = JSON.parse(fs.readFileSync(__dirname + '/data/testbed-migrated.json'))
+  
+  data.push(JSON.parse(fs.readFileSync(__dirname + '/data/testbed-notinstalled.json')))
 
 exports.__setup = function (test){
 
@@ -21,8 +23,8 @@ exports.__setup = function (test){
 
     console.log(data)
     db.save(data, function (err){
-      if(err)
-        throw error
+      //if(err)
+        //throw err
       console.info("DATABASE '" + opts.name + "' IS READY")
       test.done()
     })
@@ -34,7 +36,7 @@ var summary =
     name:it.ok()
   , status:it.ok()
   }))
-
+/*
 exports ['test ordered'] = function (test){
 
   db.view('all/ordered', function (err,data){
@@ -58,7 +60,7 @@ exports ['test ordered'] = function (test){
     test.done()
   })
 }
-
+*/
 exports ['test summary'] = function (test){
 
 /*
@@ -67,6 +69,29 @@ exports ['test summary'] = function (test){
 */
 
   db.view('all/summary', {reduce: true, group: true}, function (err,data){
+    if(err) throw err
+    console.log("all/summary:",data.rows)
+    var seen = []
+    it(data.rows).every(it.has({
+      key: it.property('length',it.ok())//username,project
+    , value: it.has({
+        commit: it.matches(/[\w|\d]+/)
+      , status: it.matches(/success|failure|error|install-error|notinstalled|invalid/)
+      , passes: it.typeof('number')
+      , total: it.typeof('number')
+      })
+    })).property('length', it.ok("length must be > 0"))
+    test.done()
+  })
+}
+exports ['test summary goup_level=2'] = function (test){
+
+/*
+  show the results of the latest commit for each user's project
+
+*/
+
+  db.view('all/summary', {reduce: true, group_level: 2}, function (err,data){
     if(err) throw err
     console.log("all/summary:",data.rows)
     var seen = []
