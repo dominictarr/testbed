@@ -134,11 +134,13 @@ app.get('/:username/:project/:commit', function (req,res){
 function summary(opts,res){
 
   db.view('all/summary',opts, function (err,data){
-
+    if(err) {
+      console.error(err)
+      return res.send(err)
+    }
     data.rows.sort(function (x,y){
       return x.value.time < y.value.time ? 1 : -1
     })
-    if(err) return res.send(err)
     res.render('user',data)
   })
 
