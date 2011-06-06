@@ -189,7 +189,7 @@ var also = {
           var devDependencies = Object.keys(dev).map(function (e){
             return e +'@' + JSON.stringify(dev[e])
           }).filter(function (e){//we don't need test frameworks.
-            return !!!/expresso|vows|nodeunit|meta-test/(e)
+            return !!!/expresso|meta-test/(e)
           })
           console.log("devDependencies",devDependencies)
         if(devDependencies.length)
