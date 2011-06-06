@@ -107,6 +107,8 @@ exports ['integrate a repo'] = function (test){
     test.done()
   })
 }
+
+
 /*
 //TODO: an module with an install error. might hade to use a install script to do this.
 
