@@ -9,12 +9,17 @@ var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
   , url = require('url')
   , db
   , config
+  , handler = require('./handler')()
+  , controllers = require('./controllers')
+
+  handler.error['500'] = '500'
+  handler.error['404'] = '404'
 
   w.cli()
   w.info('TESTBED')
   w.info(new Date)
 
-  if(!module.parent){
+  if(!module.parent) {
     config = require('./setup').deploy()
   } else {
     config = require('./setup').test()
@@ -25,8 +30,7 @@ var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
   if(!module.parent)
     app.listen(config.port);
 
-
-  db = require('./initialize')(config.database,function (err,db){
+  db = require('./initialize')(config.database, function (err, db){
     if(err){
       w.error("DATABASE SETUP ERROR")
       throw err
@@ -34,12 +38,11 @@ var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
     w.info("DATABASE '" + config.database + "' IS READY")
   })
 
-
-function save (repo){ //pull this out also.
+function save (repo) { //pull this out also.
   if(repo._id && !repo.saving){
     repo.saving = true
 
-    db.get('' + repo._id, function (err,doc){
+    db.get('' + repo._id, function (err, doc){
 
       var obj = {}
       for (var key in repo)
@@ -59,7 +62,7 @@ function save (repo){ //pull this out also.
         type: repo.type,
         username: repo.username,
         },
-        function (err,data){
+        function (err, data){
           repo._rev = data._rev
           repo.saving = null
           if(repo.changed){
@@ -73,7 +76,7 @@ function save (repo){ //pull this out also.
   }
 }
 
-app.post('/', function (req,res){
+app.post('/', function (req, res) {
 
   //pull all of this out into a repo controller.
 
@@ -85,13 +88,13 @@ app.post('/', function (req,res){
     w.error('could not parse POST JSON')
     w.statusCode = 400
     return res.send ({
-      error: "was not valid JSON", 
-      was: req.body.payload, 
-      exception: err.stack})  
+      error: "was not valid JSON",
+      was: req.body.payload,
+      exception: err.stack})
   }
   w.info('loading new repo')
   eyes.inspect(payload)
- 
+
   repo = testbed.Repo(
     payload.repository.owner.name,
     payload.repository.name, 
@@ -101,17 +104,15 @@ app.post('/', function (req,res){
 
   repo.on('change',function (event){
     //log
-    console.log([repo.username,repo.project].join('/'),[].shift.call(arguments))
-    while(arguments.length)
-      console.log([].shift.call(arguments))
-    console.log('--------------------------------')
+    console.log(event, repo._id)
     save(repo)
   })
 
   repo.integrate(function (err,data){
     //log
     if(err){
-      return res.send({error: err, reason:  "could not connect to github or npm", data: data})
+      return res.send({error: err, 
+        reason:  "could not connect to github or npm", data: data})
     }
     res.send(data)
   })
@@ -130,70 +131,35 @@ views for errors are defined once for the handler
 
 //app.get('/path', handleRoute(controller, renderer))
 
-app.get('/:username/:project/:commit', function (req,res){
-  db.get([req.params.username, req.params.project, req.params.commit].join(','),
-  function (err,data){
-    res.render('result',{self:data})
-  })
-})
+/*
+app.get(path, handler(controller, 'view'))
 
-function summary(opts,res){
+controller gets request object, and a callback
 
-  db.view('all/summary',opts, function (err,data){
-    if(err) {
-      console.error(err)
-      res.statusCode = 500
-      return res.send(err)
-    }
-    data.rows.sort(function (x,y){
-      return x.value.time < y.value.time ? 1 : -1
-    })
-    res.render('user',{self:data})
-  })
-
+function controller (req, callback){
+  //do what you gotta do, then callback.
+  if(err)
+    callback(err)
+  else
+    callback(err,obj)
 }
 
-//replace this with a function that calls the decoupled controller with just
-//params, query, 
-//and that calls back
-//with an the object ready for the view.
+if it's an error handler calls error controller.
 
-app.get('/:username/:project', function (req,res){
+else, handler calls view.
 
-  var key = 
-
-  console.log(key)
-  
-  var opts = {
-    endkey: [req.params.username,req.params.project,'ZZZZZZZ'],
-    startkey: [req.params.username,req.params.project,'_____'],
-    reduce: false,
-//    group: false
-  }
-
-  summary(opts,res)
-
+res.render(view, obj, function (err,data){
+  if (err) log object and view to a file for testing later.
+  else
+  res.send(data)
 })
 
-app.get('/:username', function (req,res){
-  
-  var opts = {
-    startkey: [req.params.username,'_______'],
-    endkey: [req.params.username,'ZZZZZZZZZ'],
-    group_level: 2,
-    reduce: true
-  }
+*/
 
-  summary(opts,res)
+app.get('/:username/:project/:commit', handler(controllers.result, 'result'))
 
-})
+app.get('/:username/:project', handler(controllers.summary.username_project, 'user'))
 
-app.get('/', function (req,res){
-  
-  var opts = {
-    group_level: 2,
-    reduce: true
-  }
+app.get('/:username', handler(controllers.summary.username,'user'))
 
-  summary(opts,res)
-})
+app.get('/', handler(controllers.summary.home,'user'))

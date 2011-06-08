@@ -1,5 +1,13 @@
 var it = require('it-is')
 
+/*
+
+  objects are always sent to render as {self: object} 
+
+  in the view use `self.property`, instead of `property`
+
+*/
+
 module.exports =
 function Handler (){
 
@@ -9,7 +17,7 @@ function Handler (){
       if(!handler.error[status])
         status = 500
       if('string' == typeof handler.error[status])
-        return res.render(handler.error[status], err)
+        return res.render(handler.error[status], {self: err})
       handler.error[status](err,res)
     }
 
@@ -23,7 +31,7 @@ function Handler (){
         if(err) return handleError(err,res)
 
         if('string' == typeof view) {
-          res.render(view, obj, function (err,data){
+          res.render(view, {self: obj}, function (err,data){
             if(err) return handleError(err)
             res.send(data)
           })

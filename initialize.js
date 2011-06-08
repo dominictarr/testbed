@@ -7,7 +7,6 @@ save ~/.testbedrc.json with configuration info.
 
 var init = require('cradle-init')
 
-
 module.exports = function (opts,callback){
   opts.raw = true
   opts.cache = true

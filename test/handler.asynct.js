@@ -16,7 +16,7 @@ exports ['pass call controller and then render'] = function (test){
     render: function (view, obj, cb) {
       console.log('called render')
       it(view).equal('example')
-      it(obj).deepEqual({hello: 'asdf'})
+      it(obj).deepEqual({self: {hello: 'asdf'}})
       cb(null,'<h1> hello asdf </h1>')
     },
     send: function (content){
@@ -103,13 +103,11 @@ exports ['set error handler to a view name'] = function (test) {
       console.log('called render', view, obj)
 
       it(view).equal('500')
-      it(obj).deepEqual({ error: 'NO GOOD' })
+      it(obj).deepEqual({self: { error: 'NO GOOD' }})
       it(cb).equal(null)
       test.done()
     }
   }
 
   action({}, mockRes)
-
 }
-
