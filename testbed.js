@@ -38,7 +38,8 @@ function Repo(username,project,basedir){
   this.basedir = basedir
   this.state = {init: false, update: false, tested: false}
   this.type = 'repo'
-  this.installation = []
+  this.time = new Date()
+  this.output = {}
   this.report = {
     status: 'notinstalled',
     failures: [],
@@ -70,7 +71,7 @@ var also = {
 
     status: function  (callback){
       exec('git status', 
-        {cwd: this.path('basedir','username','project')}, 
+        {cwd: this.dir()}, 
         callback
       )
     },
@@ -95,7 +96,7 @@ var also = {
           var m = /commit (.*)/(data.split('\n').shift())
           if(m){
             self.commit = m[1]
-            self._id = [self.username,self.project,m[1]]
+            self._id = [self.username,self.project,m[1]].join(',')
             self.change('id',self._id)
           }
           callback(err,m && m[1])
@@ -119,7 +120,8 @@ var also = {
             self.change('disconnected',err,data)
             callback.apply(self,arguments)
             return
-           } 
+           }
+          self.output['git pull'] = data
           self.headCommit(function (err,commit){
             self.change('pull',err,commit)
             callback.apply(self,arguments)
@@ -143,6 +145,7 @@ var also = {
             callback.apply(self,arguments)
             return
           }
+          self.output['git clone'] = data
           self.headCommit(function (err,commit){
             self.change('clone',err,commit)
             callback.apply(self,arguments)
@@ -151,10 +154,25 @@ var also = {
       )
     },
 
-    cloneOrPull: function (callback){
+    submodule: function (callback){
+      exec('git submodule', {cwd: this.dir()}, function (err,data){
+        if(data == '') //no submodules
+          return callback(err,data)
+        exec('git submodule --init --recursive', {cwd: this.dir()} ,function (err,data){
+          console.log(err,data)
+          callback(err,data)
+        })
+      })
+    },
+
+    cloneOrPull: function (callback){ //pull or clone, and update submodules.
       var self = this
-      self.status(function (err,data){
-        self[(err ? 'clone' : 'pull')](callback)
+      self.status(function (err,data){     
+        self[(err ? 'clone' : 'pull')](function (err,data){
+          if(err)
+            return callback(err, data)
+          self.submodule(callback)
+        })
       })
     },
 
@@ -235,11 +253,11 @@ var also = {
           if(err) {
             self.report.status = 'install-error'
             self.report.failures.push(err)
-            self.installation.push(data)
             self.change('install-error',err,data)
           } else {
             self.change('update',data)
           }
+          self.output['npm update'] = data
           callback(err,data)
         })
     },
@@ -306,7 +324,7 @@ for(var i in also){
 
 function Testbed (basedir){
   if(!(this instanceof Testbed)) return new Testbed(basedir)
-  this.basedir = 
+  this.basedir = basedir
   this.Repo = function (username,project){
     return new Repo(username,project,basedir)
   }

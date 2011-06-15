@@ -35,7 +35,7 @@ exports ['integrate a repo that uses vows'] = function (test){
     it(webservice).has({
       type: 'repo',
       report: {status: it.typeof('string'), tests: []},
-      installation: [],
+      output: {},
       package: {name: it.typeof('string'), version: it.typeof('string')}
     })
 

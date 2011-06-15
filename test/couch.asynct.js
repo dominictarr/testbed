@@ -3,7 +3,7 @@ var db
   , opts = {
       name: 'test-testbed',
       clobber: true,
-      host: 'testbedjs.org',
+      host: 'localhost',
       raw: true
     }
   , fs = require('fs')
@@ -25,7 +25,7 @@ exports.__setup = function (test){
     db.save(data, function (err){
       //if(err)
         //throw err
-      console.info("DATABASE '" + opts.name + "' IS READY")
+      console.log("DATABASE '" + opts.name + "' IS READY")
       test.done()
     })
   })

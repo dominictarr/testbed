@@ -1,10 +1,11 @@
 var Testbed = require('testbed')
-  , it = require('it-is')
+  , it = require('it-is').style('colour')
   , tmp = __dirname + '/tmp'
   , testbed = new Testbed(tmp)
   , exec = require('child_process').exec
   , fs = require('fs')
   , join = require('path').join
+  , render = require('render')
 
 exports.__setup = function (test){
   exec('rm -rf ' + tmp + '; mkdir ' + tmp, test.done)
@@ -95,9 +96,10 @@ exports ['integrate a repo'] = function (test){
     it(curry).has({
       type: 'repo',
       report: {status: it.typeof('string'), tests: []},
-      installation: [],
+      output: {},
       package: {name: it.typeof('string'), version: it.typeof('string')}
     })
+    render.cf.log(curry.output)
 /*    it(report).has([{
       tests:it.property('length',it.ok())
     },{

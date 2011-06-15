@@ -11,12 +11,14 @@ var it = require('it-is')
 module.exports =
 function Handler (){
 
-    function handleError(err,res){
+    function handleError (err,res) {
       var status = 
         'number' == typeof err ? err : (err.statusCode || 500)
-      if(!handler.error[status])
-        status = 500
-      if('string' == typeof handler.error[status])
+            
+      if (!handler.error[status]) {
+        return res.send(JSON.stringify(err),status)
+      }
+      if ('string' == typeof handler.error[status])
         return res.render(handler.error[status], {self: err})
       handler.error[status](err,res)
     }

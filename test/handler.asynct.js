@@ -111,3 +111,26 @@ exports ['set error handler to a view name'] = function (test) {
 
   action({}, mockRes)
 }
+
+exports ['default error behaviour'] = function (test) {
+  console.log('can set error handler')
+  var handler = Handler()
+
+  var action = 
+    handler(function (req, ready) {
+      console.log('called controller')
+      ready({ statusCode: 503, error: 'SERVICE UNAVAILABLE' })
+    }, 'wont-get-called')
+
+  it(action).function()
+
+  var mockRes = {
+    send: function (obj, status) {
+      it(status).equal(503)
+      it(obj).deepEqual(JSON.stringify({statusCode: 503, error: 'SERVICE UNAVAILABLE' }))
+      test.done()
+    }
+  }
+
+  action({}, mockRes)
+}

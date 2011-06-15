@@ -3,21 +3,15 @@
 var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
   , appSetup = require('./app-setup')
   , request = require('request')
-  , w = require('winston')
-  , eyes = require('eyes')
   , render = require('render')
   , url = require('url')
   , db
   , config
   , handler = require('./handler')()
-  , controllers = require('./controllers')
-
+  , controllers 
+ 
   handler.error['500'] = '500'
   handler.error['404'] = '404'
-
-  w.cli()
-  w.info('TESTBED')
-  w.info(new Date)
 
   if(!module.parent) {
     config = require('./setup').deploy()
@@ -32,12 +26,15 @@ var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
 
   db = require('./initialize')(config.database, function (err, db){
     if(err){
-      w.error("DATABASE SETUP ERROR")
+      console.error("DATABASE SETUP ERROR")
       throw err
     }
-    w.info("DATABASE '" + config.database + "' IS READY")
+    console.log("DATABASE '" + config.database + "' IS READY")
   })
 
+  controllers = require('./controllers')(db,testbed.Repo,config) //dependency injection antipattern
+
+/*
 function save (repo) { //pull this out also.
   if(repo._id && !repo.saving){
     repo.saving = true
@@ -48,20 +45,10 @@ function save (repo) { //pull this out also.
       for (var key in repo)
         obj[key] = repo[key]
       console.log(obj)
-      db.save({
-        _id: '' + repo._id,
-        _rev: doc && doc._rev,
-        commit: repo.commit,
-        installation: repo.installation,
-        package: repo.package,
-        post: repo.post,
-        project: repo.project,
-        report: repo.report,
-        state: repo.state,
-        time: new Date,
-        type: repo.type,
-        username: repo.username,
-        },
+      obj._id = '' + repo._id
+      obj._rev = doc && dov._rev
+      obj.time = new Date()
+      dbj.save(obj,
         function (err, data){
           repo._rev = data._rev
           repo.saving = null
@@ -74,49 +61,11 @@ function save (repo) { //pull this out also.
   } else {
     repo.changed = true
   }
-}
+}*/
 
-app.post('/', function (req, res) {
-
-  //pull all of this out into a repo controller.
-
-  if(!req.body)
-    return res.send ({error: "Expected payload: property"})
-  try{
-  var payload = JSON.parse(req.body.payload)
-  } catch (err){
-    w.error('could not parse POST JSON')
-    w.statusCode = 400
-    return res.send ({
-      error: "was not valid JSON",
-      was: req.body.payload,
-      exception: err.stack})
-  }
-  w.info('loading new repo')
-  eyes.inspect(payload)
-
-  repo = testbed.Repo(
-    payload.repository.owner.name,
-    payload.repository.name, 
-    config.basedir) // load that from config.
-
-  repo.post = payload
-
-  repo.on('change',function (event){
-    //log
-    console.log(event, repo._id)
-    save(repo)
-  })
-
-  repo.integrate(function (err,data){
-    //log
-    if(err){
-      return res.send({error: err, 
-        reason:  "could not connect to github or npm", data: data})
-    }
-    res.send(data)
-  })
-})
+app.post('/', handler(controllers.github, function (obj,res){
+  res.send(obj,{'Content-Type': 'application/json'},200)
+}))
 
 /*
 controller gets req and a callback, through which it passes it's data to renderer

@@ -1,5 +1,5 @@
 
-var it = require('it-is')
+var it = require('it-is').style('colour')
   , valid = exports
   , is_str = it.typeof('string')
 
@@ -54,5 +54,6 @@ valid.result =
     username: is_str,
     time: function (time){
       it(new Date(time).toString()).notEqual('Invalid Date')
-    }
+    },
+    _id: it.typeof('string')
   })
