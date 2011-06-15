@@ -74,7 +74,7 @@ function MockRepo (){
       process.nexTick(function (){ callback(null, {ok: 'true'}) })
   }
 }*/
-var github = Github(db,new Testbed('/tmp').Repo, {basedir: __dirname + '/tmp'})
+var github = Github(db,new Testbed('/tmp/test-testbed').Repo, {basedir: __dirname + '/tmp'})
   , post = {
     repository: {
       name: 'curry', 

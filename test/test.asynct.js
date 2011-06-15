@@ -1,6 +1,6 @@
 var Testbed = require('testbed')
   , it = require('it-is').style('colour')
-  , tmp = '/tmp'
+  , tmp = '/tmp/test-testbed'
   , testbed = new Testbed(tmp)
   , exec = require('child_process').exec
   , fs = require('fs')
