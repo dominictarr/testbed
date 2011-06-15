@@ -62,11 +62,11 @@ module.exports = exports = function (db,item,callback){
       saved:'end',
       //try again... this is where i need namespaced events.
       //'error.conflict': 'start'
-      error: function (err) {
+      error: ['save',function (err) {
         if('conflict' === err.error)
           this.retry()
         else throw err
-      },
+      }],
       retry: 'start'
     }
   }).call(db,item,callback)
