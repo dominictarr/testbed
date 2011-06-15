@@ -1,6 +1,6 @@
 var Testbed = require('testbed')
   , it = require('it-is')
-  , tmp = __dirname + '/tmp'
+  , tmp = '/tmp'
   , testbed = new Testbed(tmp)
  
 exports ['can has api'] = function (test){

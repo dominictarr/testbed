@@ -192,7 +192,6 @@ var also = {
 
         try {
           package = eval('(' + json + ')')
-          dev = package.devDependencies || {}
         } catch (err) {
           self.report.status = 'install-error'
           err.message = 'trying to parse package.json:' + err.message
@@ -200,6 +199,13 @@ var also = {
           //there was an error reading package json.
           self.change('install-error',err)
           return callback(err)
+        }
+      
+        dev = package.devDependencies || {}
+        var deps = package.dependencies || {}
+
+        for(var dep in deps){
+          dev[dep] = dev[dep] || deps[dep]
         }
 
         self.package = package
@@ -210,34 +216,34 @@ var also = {
             return !!!/expresso|meta-test/(e)
           })
           console.log("devDependencies",devDependencies)
-        if(devDependencies.length)
+        if(devDependencies.length)//XXX: ignore this for now
           exec('npm install ' + devDependencies.join(' '),{cwd: self.dir()}, next)
         else next()
         function next(err,data){
-        if(err) {
-          self.report.status = 'install-error'
-          self.report.failures.push(err)
-          //there was an error reading package json.
-          self.change('install-error',err)
-          return callback(err,data)
-        }
+          if(err) {
+            self.report.status = 'install-error'
+            self.report.failures.push(err)
+            //there was an error reading package json.
+            self.change('install-error',err)
+            return callback(err,data)
+          }
 
-        exec([
-          'mkdir', 'node_modules'].join(' '), 
-          {cwd: join(self.basedir,self.username)}, 
-          function (err){
-          if(err) console.log(err)
           exec([
-            'ln -s', 
-            self.dir(),
-            join(self.basedir, self.username, 'node_modules', package.name)
-            ].join(' '),
-            function (err){//err will happen if it's already there, so ignore it.
-              self.setState(true,false,false)
-              self.change('init',err)
-              callback(err)
+            'mkdir', 'node_modules'].join(' '), 
+            {cwd: join(self.basedir,self.username)}, 
+            function (err){
+            if(err) console.log(err)
+            exec([
+              'ln -s', 
+              self.dir(),
+              join(self.basedir, self.username, 'node_modules', package.name)
+              ].join(' '),
+              function (err){//err will happen if it's already there, so ignore it.
+                self.setState(true,false,false)
+                self.change('init',err)
+                callback(err)
+              })
             })
-          })
         }
       })
     },

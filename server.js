@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-var testbed = new (require('./testbed'))(process.cwd() + '/workspace')
+var testbed = new (require('./testbed'))(process.cwd() + '/../workspace')//no not install inside cwd. 
+                                                            //testbed's deps may interfere with a tests deps.
   , appSetup = require('./app-setup')
   , request = require('request')
   , render = require('render')
