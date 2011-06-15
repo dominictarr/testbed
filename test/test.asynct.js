@@ -1,4 +1,4 @@
-var Testbed = require('testbed')
+var Testbed = require('../testbed')
   , it = require('it-is').style('colour')
   , tmp = '/tmp/test-testbed'
   , testbed = new Testbed(tmp)
