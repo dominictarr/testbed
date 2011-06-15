@@ -2,6 +2,8 @@
 var Github = require('../controllers/github')
   , valid = require('./lib/validate')
   , Testbed = require('../testbed')
+  , exec = require('child_process').exec
+  , tmp = '/tmp/test-testbed'
   , it = require('it-is')
   , fs = require('fs')
   , render = require('render')
@@ -15,14 +17,16 @@ var Github = require('../controllers/github')
 
 exports.__setup = function (test){
 
-  console.error("init database")
-  console.log(opts)
-  db = require('../initialize')(opts, function (err,db){
-    if(err){
-      console.error("DATABASE SETUP ERROR")
-      throw err
-    }
-    test.done()
+  exec('rm -rf ' + tmp + '; mkdir ' + tmp, function (){
+    console.error("init database")
+    console.log(opts)
+    db = require('../initialize')(opts, function (err,db){
+      if(err){
+        console.error("DATABASE SETUP ERROR")
+        throw err
+      }
+      test.done()
+    })
   })
 
 }
@@ -74,7 +78,7 @@ function MockRepo (){
       process.nexTick(function (){ callback(null, {ok: 'true'}) })
   }
 }*/
-var github = Github(db,new Testbed('/tmp/test-testbed').Repo, {basedir: __dirname + '/tmp'})
+var github = Github(db,new Testbed(tmp).Repo, {basedir: __dirname + '/tmp'})
   , post = {
     repository: {
       name: 'curry', 
