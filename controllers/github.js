@@ -34,6 +34,9 @@ module.exports = function (db,Repo,config) { //I think dependency injection may 
 
     repo.on('change',function (event){
       console.log('change',event, repo._id)
+      overwrite(db,repo,function (){
+        console.log("SAVED",event, repo._id)
+      })
     })
 
     repo.integrate(function (err,data){
