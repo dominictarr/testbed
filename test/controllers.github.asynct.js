@@ -81,7 +81,7 @@ function MockRepo (){
 var github = Github(db,new Testbed(tmp).Repo, {basedir: __dirname + '/tmp'})
   , post = {
     repository: {
-      name: 'curry', 
+      name: 'fsm', 
       language: 'JavaScript',
       description: 'sdlfjasgnasgisdpf',
       url: 'http:/gfasgasdg',

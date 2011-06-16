@@ -19,7 +19,7 @@ module.exports = function (db,Repo,config) { //I think dependency injection may 
 
       db.get('' + repo._id, function (err, doc){
 
-        var obj = filter (doc || repo,['_events'])
+        var obj = filter (repo,['_events'])
         obj._id = '' + repo._id
         obj._rev = doc && doc._rev
         obj.time = new Date()
