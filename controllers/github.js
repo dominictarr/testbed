@@ -75,7 +75,6 @@ module.exports = function (db,Repo,config) { //I think dependency injection may 
       if(err){//not necessarily the right error message.
         return cont({statusCode: 503, error: err, reason:  "could not connect to github or npm", data: data})
       }
-      save(db,repo)
       //,function (err2,data2){   //save to database.
         if(err)
           return cont({statusCode: 503, error: err, reason:  "database error", data: data})
