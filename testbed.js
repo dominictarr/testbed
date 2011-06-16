@@ -220,6 +220,7 @@ var also = {
           exec('npm install ' + devDependencies.join(' '),{cwd: self.dir()}, next)
         else next()
         function next(err,data){
+          self.output['npm install'] = data
           if(err) {
             self.report.status = 'install-error'
             self.report.failures.push(err)
